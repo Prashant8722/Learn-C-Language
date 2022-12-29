@@ -1,0 +1,484 @@
+<html>
+
+<head>
+  <title>Chapter 5:Loops</title>
+  <link rel = "icon" href = "logo.png" type = "icon">
+  <meta http-equiv="Content-Type" content="text/html">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="indexCss.css">
+  <script>
+    function showAlert() {
+      alert("1. A) All of the above" + '\n' +
+        "2. C) Repeats the loop if the condition applies true " + '\n' +
+        "3. D) Float is a variable. " + '\n' +
+        "4. B) Processes the code at least once and then repeats " + '\n' + "5. C) Float")
+    }
+    </script>
+</head>
+
+<body>
+  <header id="header"> <a href="index.html"><img id="logo" src="logo.png"></a>Chapter 5<br>Loops</header>
+  <div class="flexContainer">
+    <!-- chapter3 -->
+    <section id="side">
+      <aside id="chapterList">
+        <h1>Topics</h1>
+        <div class="chapterContent">
+          <ul>
+            <li><a href="ch5.html"><b>Ch5:Loops</b></a></li>
+            <li><a href="ch5.html#Introduction">Introduction</a>
+            <li><a href="ch5.html#The while Loop">The while Loop</a>
+            <li><a href="ch5.html#The For Loop">The For Loop</a>
+                    <ul>
+                            <li><a href="ch5.html#Nesting of for Loop">Nesting of
+                                            for Loop
+                                            for Loop</a></li>
+                            <li><a href="ch5.html#Equivalance of while and for Loop">Equivalance
+                                            of while and for Loop</a></li>
+                    </ul>
+            <li><a href="ch5.html#The do-while Loop">The do-while Loop</a></li>
+            <li><a href="ch5.html#The continue statement">The continue statement</a>
+            </li>
+            <li><a href="ch5.html#Chapter 5 Quiz">Chapter 5 Quiz</a></li>
+    </ul>
+        </div>
+      </aside>
+    </section>
+    <section class="main">
+  <h2 id="Introduction">Introduction</h2>
+  <ul>
+    <li>Group of statements that are executed repeatedly while some condition remains true</li>
+    <li>Each execution of the group of statements is called an <span style="color:blue">iteration </span>of the loop
+    </li>
+  </ul>
+
+  <h2 id="The while Loop">The while Loop</h2>
+  <figure> <img class="imageMiddle" src="Figure5.1.jpg"><figcaption class="figcaptionCenter">Figure 5.1 Working of While Loop</figcaption></figure>
+  <section>
+    <h3 style="color:Tomato;">Example1:Find the sum of digits of a number</h3>
+    <pre>
+void main()
+{
+int n, sum=0;
+scanf ("%d",&n);
+while (n != 0) {
+sum = sum + (n % 10);
+n = n / 10;
+}
+printf ("The sum of digits of the number is %d \n", sum);
+}
+</pre>
+    <h3 style="color:Tomato;">Example2:Find the sum of Square of digits of a number</h3>
+    <pre>
+void main() {
+int N, count, sum;
+scanf ("%d", &N) ;
+sum = 0;
+count = 1;
+while (count &lt= N)
+{
+	sum = sum + count * count;
+	count = count + 1;
+}
+printf ("Sum = %d\n", sum) ;
+return 0;
+}
+</pre>
+    
+      <h2 style="color:Tomato">Example-3</h2>
+    
+    <figure> <img class="imageMiddle" src="Figure5.2.jpg"><figcaption class="figcaptionCenter">Figure 5.2:Finding the GCD of two given Numbers </figcaption></figure>
+    
+  </section>
+
+  <h2 id="The For Loop">The For Loop</h2>
+  <ol type="a">
+    <li>Initialization, loop-continuation test, and update can contain arithmetic expressions
+      <p style="text-align:left;">for( k = x; k &lt= 4 * x * y; k +=y / x )</p>
+    </li>
+    <li>Update may be negative (decrement)<p style="text-align:left;">for (num = 10; num >= 0; --num)</p>
+    </li>
+    <li>If loop continuation test is initially 0 (false):
+      <ul>
+        <li>body of for structure not performed</li>
+        <ul>No statement executed</ul>
+        <li>Program proceeds with statement after for structure</li>
+      </ul>
+  </ol>
+  <table>
+    <tr>
+      <td><figure> <img class="imageMiddle"  src="Figure5.3.jpg"></td>
+      <td><figure> <img class="imageMiddle"  src="Figure5.4.jpg"></td>
+    </tr>
+  </table>
+
+  <h3 style="color:rgb(255, 0, 0)">Example:Computing Factorial</h3>
+  <pre>
+void main () 
+{
+int N, count, prod;
+scanf ("%d",&N) ;
+prod = 1;
+for (count = 1;count &lt= N; ++count)
+{
+	prod = prod * count;
+}
+printf ("Factorial = %d\n", prod) ;
+}
+</pre>
+  <h2 id="Nesting of for Loop">
+        Nesting of for Loop</h2>
+  <pre>
+void main()
+{
+int row,i,j,k;
+printf("Enter number of row for pattern:");
+scanf("%d",&row);
+for(i=1;i&lt;=row;++i)
+{
+	for(j=1;j&lt;=i;j++)
+	{
+		printf("*");
+	}
+printf("\n");
+}
+
+}
+</pre>
+  <pre>
+<h4>Output:</h4>
+Enter number of row for pattern:5
+*
+**
+***
+****
+*****
+</pre>
+  <pre>
+void main()
+{
+int row, col,ROWS;
+printf("Enter number of row for pattern:");
+scanf("%d",&ROWS);
+for (row=0; row &lt; ROWS; ++row) {
+	for (col=1; col&lt;=row; ++col)
+		printf(" ");
+	for (col=1; col&lt;=ROWS-row; ++col)
+		printf("* ");
+printf ("\n");
+}
+}
+</pre>
+  <pre>
+<h6>Output:</h6>
+Enter number of row for pattern:10
+* * * * * * * * * * 
+ * * * * * * * * * 
+  * * * * * * * * 
+   * * * * * * * 
+    * * * * * * 
+     * * * * * 
+      * * * * 
+       * * * 
+        * * 
+         * 
+</pre>
+  <h2 id="Equivalance of while and for Loop">Equivalance of while and for Loop</h2>
+
+  <figure><figure> <img class="imageMiddle" class="imageMiddle" src="Figure5.6.jpg"><figcaption class="figcaptionCenter">Figure 5.6:Equivalance of for & while Loop </figcaption></figure></b>
+
+  <h2 id="The do-while Loop">The do-while Loop</h2>
+  <figure> <img class="imageMiddle" src="Figure5.7.jpg"><figcaption class="figcaptionCenter">Figure 5.7:do-while Loop </figcaption></figure>
+  <h3 style="color:Tomato;">Example:Decimal to binary conversion(prints binary in reverse order)</h3>
+  <pre>
+void main() {
+int dec;
+scanf ("%d", &dec);
+do
+	{
+	printf ("%2d", (dec % 2));
+	dec = dec / 2;
+	} while (dec != 0);
+printf ("\n");
+}
+</pre>
+  <pre>
+<h4 style="color:blue;">Echo characters typed on screen until end of line</h4>
+void main () {
+char echo ;
+do {
+scanf ("%c", &echo);
+printf ("%c",echo);
+} while (echo != '\n') ;
+}
+</pre>
+  <figure> <img class="imageMiddle" src="Figure5.8.jpg"><br>
+
+  <h2 id="The continue statement">The continue statement</h2>
+  <p>The continue statement in C programming works somewhat like the break statement.<br>
+    Instead of forcing termination,it forces the next iteration of the loop to take place,skipping any code in between.
+  </p>
+  <p>
+    For the for loop, continue statement causes the conditional test and increment portions of the loop to execute.<br>
+    For the while and do...while loops, continue statement causes the program control to pass to the conditional tests.
+  </p>
+  <p><b>Syntax</b><br>
+    The syntax for a continue statement in C is as follows:<br>
+    <strong>continue;</strong>
+  </p>
+  <b>Flow Diagram</b>
+  <figure> <img class="imageMiddle" src="Figure5.11.jpg"><br><b>How Continue Works</b>
+<pre>
+<h4><strong>Example of continue in do-While loop</strong></h4>
+#include &#60stdio.h&#62
+int main()
+{
+   int j=0;
+   do
+   {
+      if (j==7)
+      {
+         j++;
+         continue;
+      }
+      printf("%d ", j);
+      j++;
+   }while(j &lt10);
+   return 0;
+}
+</pre>
+  <pre>
+<b>Output:</b>
+0 1 2 3 4 5 6 8 9
+</pre>
+  <pre>
+<h3 style="color:Tomato;">An Example with break and continue </h3>
+void main() {
+int fact = 1;
+int i = 1;
+while (1) {
+fact = fact * i;
+++i;
+if ( i <=10 )
+continue; 	/* not done yet ! Go to loop and perform next iteration*/
+break;
+	}
+}
+</pre>
+
+</pre>
+     <h2 id="Chapter 5 Quiz">
+        Chapter 5 Quiz</h2>
+
+    <div class="qt-question">1.What are the primary iterations in C programming?
+
+      </div>
+    <div class="qt-choices">
+
+      <div class="gcb-mcq-choice">
+        <input data-index="0" id="1.0" name="1" onclick="clearSelection(this)" type="radio" />
+        <label for="1.0">
+          A) All of the above
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="1" id="1.1" name="1" onclick="clearSelection(this)" type="radio" />
+        <label for="1.1">
+          B) while loop
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="2" id="1.2" name="1" onclick="clearSelection(this)" type="radio" />
+        <label for="1.2">
+          C)  Do while loop
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="3" id="1.3" name="1" onclick="clearSelection(this)" type="radio" />
+        <label for="1.3">
+          D) For loop
+        </label>
+      </div>
+
+    </div>
+
+    <div class="qt-question">2.What is a while loop?
+    </div>
+    <div class="qt-choices">
+
+      <div class="gcb-mcq-choice">
+        <input data-index="0" id="2.0" name="2" onclick="clearSelection(this)" type="radio" />
+        <label for="1.0">
+          A) Repeats only once
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="1" id="2.1" name="2" onclick="clearSelection(this)" type="radio" />
+        <label for="1.1">
+          B) Processes the code at least once and then repeats
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="2" id="2.2" name="2" onclick="clearSelection(this)" type="radio" />
+        <label for="1.2">
+          C) Repeats the loop if the condition applies true
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="3" id="2.3" name="2" onclick="clearSelection(this)" type="radio" />
+        <label for="1.3">
+          D) All of the above
+        </label>
+      </div>
+
+    </div>
+
+    <div class="qt-question">3.Which of the following is true in the case of c programming?
+
+      </div>
+    <div class="qt-choices">
+
+      <div class="gcb-mcq-choice">
+        <input data-index="0" id="3.0" name="3" onclick="clearSelection(this)" type="radio" />
+        <label for="1.0">
+         A) The function is a variable.
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="1" id="3.1" name="3" onclick="clearSelection(this)" type="radio" />
+        <label for="1.1">
+          B) Parenthesis isn't needed at all in c programming.
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="2" id="3.2" name="3" onclick="clearSelection(this)" type="radio" />
+        <label for="1.2">
+          C) There is no need for closing parenthesis in c programming
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="3" id="3.3" name="3" onclick="clearSelection(this)" type="radio" />
+        <label for="1.3">
+          D) Float is a variable.
+        </label>
+      </div>
+
+    </div>
+
+
+    <div class="qt-question">4.What does a do-while loop do?
+
+      </div>
+    <div class="qt-choices">
+
+      <div class="gcb-mcq-choice">
+        <input data-index="0" id="4.0" name="4" onclick="clearSelection(this)" type="radio" />
+        <label for="1.0">
+          A) Repeats the process infinitely
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="1" id="4.1" name="4" onclick="clearSelection(this)" type="radio" />
+        <label for="1.1">
+          B) Processes the code at least once and then repeats
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="2" id="4.2" name="4" onclick="clearSelection(this)" type="radio" />
+        <label for="1.2">
+          C) Repeats only once
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="3" id="4.3" name="4" onclick="clearSelection(this)" type="radio" />
+        <label for="1.3">
+          D) All of the above
+        </label>
+      </div>
+
+    </div>
+
+
+    <div class="qt-question">5.Which of the following cannot be checked in a switch-case statement?
+    </div>
+    <div class="qt-choices">
+
+      <div class="gcb-mcq-choice">
+        <input data-index="0" id="5.0" name="5" onclick="clearSelection(this)" type="radio" />
+        <label for="1.0">
+          A)	Character
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="1" id="5.1" name="5" onclick="clearSelection(this)" type="radio" />
+        <label for="1.1">
+          B)	Integer
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="2" id="5.2" name="5" onclick="clearSelection(this)" type="radio" />
+        <label for="1.2">
+          C)	Float
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="3" id="5.3" name="5" onclick="clearSelection(this)" type="radio" />
+        <label for="1.3">
+        D)	enum
+        </label>
+      </div>
+
+    </div>
+
+    <button type="button" onclick="showAlert()">Get Answer</button>
+        <div class="qt-feedback qt-hidden" role="alert"></div>
+  
+      </section>
+  </div>
+
+
+  <div class="flex-container">
+    <div class="flex-items"><a href="index.html">
+        <figure> <img src="home.png" alt="Home Page"></a>
+    </div>
+    <div class="flex-items"> <a href="ch5.html">
+        <figure> <img src="cc.png" alt="Top of Page"></a>
+    </div>
+  </div>
+
+  <div class="flex-containerpreviousnext">
+    <div class="flex-itemsprevious"><a href="ch4.html"><figure> <img src="previous.png" alt="Go Next"></a></div>
+    <div class="flex-itemsnext"><a href="ch6.html"><figure> <img src="next.png" alt="Go Next"></a></div>
+  </div>
+
+  <footer>
+    <div class="flex-footer">
+      <div class="footer-item">Copyright © 2023. All rights reserved.
+        For Suggestions and Feedback please contact
+        dean.academic80@gmail.com
+        Designed by Webteam
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

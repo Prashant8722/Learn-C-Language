@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chapter 4:Conditional Statement</title>
+  <link rel = "icon" href = "logo.png" type = "icon">
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="indexCss.css">
+  <script>
+    function showAlert() {
+      alert("1. d) All work at same speed" + '\n' +
+        "2. b) for (i = 0, j = 0; i < n, j < n; i++, j +=5)" + '\n' +
+        "3. b) break and continue can be used in \"for\", \"while\" and \"do-while\" loop body. But only \"break\" can be used in \"switch\" body" + '\n' +
+        "4. d) Loop jamming" + '\n' + "5. c) Default case, if used, can be placed anywhere")
+    }
+  </script>
+
+  <style>
+    th,
+    td {
+      border: 2px solid grey;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 5px;
+      text-align: left;
+    }
+
+    #t40,
+    #t41,
+    #t42,
+    #t43,
+    #t45,
+    #t46,
+    #t47 {
+      width: 100%;
+    }
+
+    tr:nth-child(even) {
+      background-color: LightGray;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header"> <a href="index.html"><img id="logo" src="logo.png"></a>Chapter 4<br>Conditional Statement</header>
+  <div class="flexContainer">
+    <!-- chapter3 -->
+    <section id="side">
+      <aside id="chapterList">
+        <h1>Topics</h1>
+        <div class="chapterContent">
+          <ul>
+            <li><a href="ch4.html"><b>Ch4:Conditional Statements</b></a></li>
+            <li><a href="ch4.html#Introduction">Introduction</a></li>
+            <li><a href="ch4.html#The if Statement">The if Statement </a></li>
+            <ul>
+              <li><a href="ch4.html#Equality and Assignment Operators">Equality and Assignment Operators</a></li>
+              <li><a href="ch4.html#Multiple Statements within if">Multiple Statements within if</a></li>
+            </ul>
+            <li><a href="ch4.html#The if-else Statement">The if-else Statement</a></li>
+            <ul>
+              <li><a href="ch4.html#Nested if-else">Nested if-else</a></li>
+            </ul>
+            <li><a href="#The Terniary Operator ?:">The Terniary Operator ?:</a></li>
+            <li><a href="ch4.html#The switch statement">The switch statement</a></li>
+            <ul>
+              <li><a href="ch4.html#Behaviour of switch">Behaviour of switch</a></li>
+            </ul>
+            <li><a href="ch4.html#The break statement">The break statement</a></li>
+            <li><a href="ch4.html#Chapter 4 Quiz">Chapter 4 Quiz</a></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+    <section class="main">
+      <h2 id="Introduction">Introduction </h2>
+      <ul>
+        <li>Allow different sets of instructions to be executed depending on truth or falsity of alogical condition also
+          called Branching</li>
+        <li>How do we specify conditions?</li>
+        <ul>
+          <li>Using expressions</li>
+          <li>non-zero value means condition is true</li>
+          <li>value 0 means condition is false</li>
+        </ul>
+      </ul>
+      <ul>
+        <li>Usually logical expressions, but can be any expression</li>
+        <li>The value of the expression will be used</li>
+      </ul>
+
+      <h2 id="The if Statement">The if Statement</h2>
+      <div class="row">
+        <div class="column">
+          <figure><img class="imageMiddle" src="Figure4.0.jpg" alt="Syntax Diagram"></figure>
+          <figcaption class="figcaptionCenter">Figure4.2 Syntax Diagram of if-else</figcaption>
+          </figure>
+        </div>
+        <div class="column">
+          <figure><img class="imageMiddle" src="Figure4.1.jpg" alt="Control-Flow Diagram"></figure>
+          <figcaption class="figcaptionCenter"><b>Figure 4.3</b> Control Flow Diagram of if-else </figcaption>
+          </figure>
+        </div>
+      </div>
+
+
+
+      <h2 id="Equality and Assignment Operators">Equality and Assignment Operators</h2>
+      <ul>
+        <li><b>Dangerous error</b></li>
+        <ul>
+          <li>Does not ordinarily cause syntax errors</li>
+          <li>Any expression that produces a value can be used in control structures</li>
+          <li>Nonzero values are true, zero values are false</li>
+        </ul>
+        <li><b>Example:</b></li>
+        if ( payCode = 4 )<br>
+        printf( "You get a bonus!\n" );<span><br>Note:WRONG! Will always print the line</span>
+      </ul>
+      <h2 id="Multiple Statements within if">Multiple Statements within if</h2>
+
+      <pre>
+          #include&#60stdio.h&#62
+          int main()
+          {
+            int num=19;
+            if(num &lt 10)
+            {	
+              printf("Number is %d.\n",num);
+              printf("The value is less than 10");
+            }
+            else
+            {	
+              printf("The value is greater than 10\n");
+              printf("Number is %d.\n",num);
+            }
+            return 0;
+          }
+      </pre>
+      <pre>
+        <b>Output:</b>
+        The value is greater than 10
+        Number is 19.
+        </pre>
+      <h2 id="The if-else Statement">The if-else Statement</h2>
+      <div class="row">
+        <div class="column">
+          <figure><img class="imageMiddle" src="Figure4.2.jpg" alt="Syntax Diagram of if-else">
+            <figcaption class="figcaptionCenter">Figure4.2 Syntax Diagram of if-else</figcaption>
+          </figure>
+        </div>
+        <div class="column">
+          <figure><img class="imageMiddle" src="Figure4.3.png" alt="Figure4.3">
+            <figcaption class="figcaptionCenter"><b>Figure 4.3</b> Control Flow Diagram of if-else </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <pre>
+      <B>Illustration 4.1</B>
+          void main() {
+          int marks;
+          scanf("%d", &marks);
+          if (marks >= 80)
+            printf ("A") ;
+          else if (marks >= 70)
+            printf ("B") ;
+          else if (marks >= 60)
+            printf ("C") ;
+          else printf ("Failed") ;
+      }
+      </pre>
+
+      <h2 id="Nested if-else">Nested if-else</h2>
+      <ul>
+        <li>It is possible to nest if-else statements,one within another</li>
+        <li>All "if" statements may not be having the "else" part</li>
+        <ul>Confusion??</ul>
+        <li><strong>Rule to be remembered:</li></strong>
+        <ul>An "else" clause is associated with the closest preceding unmatched "if"</ul>
+      </ul>
+      <pre>
+      <B>Illustration 4.2</B>
+      #include &#60 stdio.h &#62
+      int main () 
+        {
+        int a = 1;
+        if( a &lt 10) 
+        {
+            if( a == 1) 
+          {
+              printf("Value of a is:%d\n",a);
+            }
+          else
+          {
+          printf("The value is greater than 100.");
+          }
+        }
+        else
+        {
+        printf("The value is greater than 10.");
+        }
+        return 0;
+      }
+        </pre>
+
+      <pre>
+        <b>Output:</b></br>
+        Value of a is:1
+        </pre>
+
+
+      <h2 id="The Terniary Operator ?:">The Terniary Operator ?:</h2>
+
+      <p>This makes use of an expression that is either non-0 or 0.<br>An appropriate value is selected,depending on the
+        value of the expression</p>
+      <h4>Syntax:-</h4>
+      <p style="color:rgb(255, 111, 0);">Condition ? True Statement : False Statement</p>
+      <p><b>Note:</b>if condition will true then true statement will be executed else false statement will be
+        executed.
+      </p>
+
+      <table id="#t40" width="fit-content">
+        <Caption Style="Text-align:center"><strong>Examples:</strong></Caption>
+        <tr>
+          <td>#include&#60stdio.h&#62<br>
+            void main()<br>
+            {<br>
+            int marks=80;<br>
+            if (marks >= 60)<br>
+            printf("Passed \n");<br>
+            else printf("Failed \n");<br>
+            return 0;<br>
+            }
+          </td>
+          <td>#include&#60stdio.h&#62<br>
+            void main()<br>
+            {<br>
+            int marks=80;<br>
+            (marks >= 60) ? printf("Passed \n") : printf("Failed \n");<br>
+            }
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span style="color:blue;">Output:</span>Passed
+          </td>
+          <td>
+            <span style="color:blue;">Output:</span>Passed
+          </td>
+        </tr>
+        <tr>
+          <td>
+            #include&#60stdio.h&#62<br>
+            void main()<br>
+            {<br>
+            int a=5;
+            int b=3;<br>
+            if((a >10) && (b &lt 5))<br>
+            x = a + b;<br>
+            else x = a-b;<br>
+            printf("x=%d",x);<br>
+            return 0;<br>
+            }
+          </td>
+          <td>
+            #include&#60stdio.h&#62<br>
+            void main()<br>
+            {<br>
+            int a=5;<br>
+            int b=3;<br>
+            x = ((a > 10) && (b &lt 5)) ? a + b : a-b<br>
+            printf("x=%d",x);<br>
+            }
+          </td>
+        <tr>
+          <td>
+            <span style="color:red;">Output:</span>x=2
+          </td>
+          <td>
+            <span style="color:red;">Output:</span>x=2
+          </td>
+        </tr>
+      </table>
+
+      <h2 id="The switch statement">The switch statement</h2>
+
+      <ul>
+        <li>An alternative to writing lots of if-else in some special cases</li>
+        <li>This causes a particular group of statements to be chosen from several available groups based on equality
+          tests only</li>
+        <li>Uses <span style="color:blue;"> switch </span>statement and <span style="color:blue;">case</span>
+          labels
+        <li>
+          <h4 style="color:Tomato;">Syntax</h4>
+          <pre>
+    switch (expression) {
+    case const-expr-1: S-1
+    case const-expr-2: S-2
+    :
+    case const-expr-m: S-m
+    default: S
+    }
+</pre>
+        <li>expression is any integer-valued expression</li>
+        <li>const-expr-1, const-expr-2,..are any constant integer- valued expressions
+          <br>Values must be distinct
+        </li>
+        <li>S-1, S-2,...,S-m, S are statements/compound
+          statements</li>
+        <li>Default is optional, and can come anywhere (not
+          necessarily at the end as shown)</li>
+      </ul>
+      <h2 id="Behaviour of switch">Behaviour of switch</h2>
+
+      <ul type="disc">
+        <li>expression is first evaluated</li>
+        <li>It is then compared with const-expr-1,constexpr-2,...for equality in order</li>
+        <li>If it matches any one, all statements from that point till the end of the switch are
+          executed (including statements for default, if present)</li>
+        <ul type="square">
+          <li>Use break statements if you do not want this (see example)</li>
+        </ul>
+        <li>Statements corresponding to default, if present,are executed if no other expression matches</li>
+      </ul>
+      <h3 style="color:Tomato;">Example</h3>
+
+      <div class="row">
+        <div class="column">
+          <figure> <img class="imageMiddle" src="Figure4.4.jpg" alt="Figure4.4">
+            <figcaption> Incorrect Way</figcaption>
+          </figure>
+        </div>
+        <div class="column">
+          <figure><img class="imageMiddle" src="Figure4.5.png" alt="Figure4.5">
+            <figcaption> Correct Way</figcaption>
+          </figure>
+        </div>
+      </div>
+
+
+      <h2 id="The break statement">The break statement</h2>
+
+      <ul type="circle">
+        <li>Used to exit from a switch or terminate from a loop</li>
+        <ul>
+          <li>With respect to "switch", the "break" statement causes a transfer of control out of the
+            entire
+            "switch" statement, to the first statement following the "switch" statement</li>
+        </ul>
+        <li>Break out of the loop body { }
+          <ul>
+            <li>It can use with while, do while, for, switch,</li>
+            <li>It does not work with if, else</li>
+          </ul>
+        <li>It Causes immediate exit from a while,do/while, for or switch structure</li>
+        <li>Program execution continues with the first statement after the structure</li>
+        <li>It Can be used with other statements also </li>
+      </ul>
+
+      <h2 id="Chapter 4 Quiz">Chapter 4 Quiz</h2>
+      <div class="qt-question">Q1).Which loop is faster in C Language, for, while or Do While?
+      </div>
+      <div class="qt-choices">
+        <div class="gcb-mcq-choice">
+          <input data-index="0" id="1.0" name="1" onclick="clearSelection(this)" type="radio" />
+          <label for="1.0">
+            a) for
+          </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="1" id="1.1" name="1" onclick="clearSelection(this)" type="radio" />
+          <label for="1.1">
+            b) while
+          </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="2" id="1.2" name="1" onclick="clearSelection(this)" type="radio" />
+          <label for="1.2">
+            c) do while
+          </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="3" id="1.3" name="1" onclick="clearSelection(this)" type="radio" />
+          <label for="1.3">
+            d) All work at same speed
+          </label>
+        </div>
+
+      </div>
+
+      <div class="qt-question">Q2).What will be the correct syntax for running two variables in
+        for loop simultaneously?
+      </div>
+      <div class="qt-choices">
+
+        <div class="gcb-mcq-choice">
+          <input data-index="0" id="2.0" name="2" onclick="clearSelection(this)" type="radio" />
+          <label for="1.0">
+            a) for (i = 0; i < n; i++) for (j=0; j < n; j +=5) </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="1" id="2.1" name="2" onclick="clearSelection(this)" type="radio" />
+          <label for="1.1">
+            b) for (i = 0, j = 0; i < n, j < n; i++, j +=5) </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="2" id="2.2" name="2" onclick="clearSelection(this)" type="radio" />
+          <label for="1.2">
+            c) for (i = 0; i < n;i++){ } for (j=0; j < n;j +=5){ } </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="3" id="2.3" name="2" onclick="clearSelection(this)" type="radio" />
+          <label for="1.3">
+            d) None of the above
+          </label>
+        </div>
+
+      </div>
+
+      <div class="qt-question">Q3).In the context of "break" and "continue" statements in C, pick the best statement.
+      </div>
+      <div class="qt-choices">
+
+        <div class="gcb-mcq-choice">
+          <input data-index="0" id="3.0" name="3" onclick="clearSelection(this)" type="radio" />
+          <label for="1.0">
+            a) "break" can be used in "for", "while" and "do-while" loop body
+          </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="1" id="3.1" name="3" onclick="clearSelection(this)" type="radio" />
+          <label for="1.1">
+            b) "break" and "continue" can be used in "for", "while" and "do-while" loop body. But only "break" can be
+            used in "switch" body
+          </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="2" id="3.2" name="3" onclick="clearSelection(this)" type="radio" />
+          <label for="1.2">
+            c)"break" and "continue" can be used in "for", "while", "do-while" loop body and "switch" body </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="3" id="3.3" name="3" onclick="clearSelection(this)" type="radio" />
+          <label for="1.3">
+            d) "break" and "continue" can be used in loop body. Besides, "continue" and "break" can be used in "switch"
+            and "if-else" body
+          </label>
+        </div>
+      </div>
+
+      <div class="qt-question">Q4).In _______, the bodies of the two loops are merged together to form a single loop
+        provided that they do not make any references to each other.
+      </div>
+      <div class="qt-choices">
+
+        <div class="gcb-mcq-choice">
+          <input data-index="0" id="4.0" name="4" onclick="clearSelection(this)" type="radio" />
+          <label for="1.0">
+            a) Loop unrolling
+          </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="1" id="4.1" name="4" onclick="clearSelection(this)" type="radio" />
+          <label for="1.1">
+            b) Strength reduction
+          </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="2" id="4.2" name="4" onclick="clearSelection(this)" type="radio" />
+          <label for="1.2">
+            c) Loop concatenation
+          </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="3" id="4.3" name="4" onclick="clearSelection(this)" type="radio" />
+          <label for="1.3">
+            d) Loop jamming
+          </label>
+        </div>
+
+      </div>
+
+
+      <div class="qt-question">Q5).If switch feature is used, then
+      </div>
+      <div class="qt-choices">
+
+        <div class="gcb-mcq-choice">
+          <input data-index="0" id="5.0" name="5" onclick="clearSelection(this)" type="radio" />
+          <label for="1.0">
+            a) Default case must be present
+          </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="1" id="5.1" name="5" onclick="clearSelection(this)" type="radio" />
+          <label for="1.1">
+            b) Default case, if used, should be the last case
+          </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="2" id="5.2" name="5" onclick="clearSelection(this)" type="radio" />
+          <label for="1.2">
+            c) Default case, if used, can be placed anywhere
+          </label>
+        </div>
+
+        <div class="gcb-mcq-choice">
+          <input data-index="3" id="5.3" name="5" onclick="clearSelection(this)" type="radio" />
+          <label for="1.3">
+            d) None of the above
+          </label>
+        </div>
+      </div>
+
+      <button type="button" onclick="showAlert()">Get Answer</button>
+      <div class="qt-feedback qt-hidden" role="alert"></div>
+    </section>
+  </div>
+
+  <div class="flex-container">
+    <div class="flex-items"><a href="index.html">
+        <img src="home.png" alt="Home Page"></a>
+    </div>
+    <div class="flex-items"> <a href="ch4.html">
+        <img src="cc.png" alt="Top of Page"></a>
+    </div>
+  </div>
+
+  <div class="flex-containerpreviousnext">
+    <div class="flex-itemsprevious"><a href="ch3.html"><img src="previous.png" alt="Go Next"></a></div>
+    <div class="flex-itemsnext"><a href="ch5.html"><img src="next.png" alt="Go Next"></a></div>
+  </div>
+
+  <footer>
+    <div class="flex-footer">
+      <div class="footer-item">Copyright © 2023. All rights reserved.
+        For Suggestions and Feedback please contact
+        dean.academic80@gmail.com
+        Designed by Webteam
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

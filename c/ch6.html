@@ -1,0 +1,820 @@
+<html>
+
+<head>
+  <title>Chapter 6:Functions & Pointers</title>
+  <link rel = "icon" href = "logo.png" type = "icon">
+  <meta http-equiv="Content-Type" content="text/html">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="indexCss.css">
+  <script>
+    function showAlert() {
+      alert("1. (a) recursion" + '\n' +
+        "2. (b) Infinite loop" + '\n' +
+        "3. (b) 16" + '\n' +
+        "4. (a) The number of activation records between the current activation record and the activation record of the main depends on the actual function calling" + '\n' +
+        "5. (a) 5 ")
+    }
+  </script>
+</head>
+
+<body>
+  <header id="header"> <a href="index.html"><img id="logo" src="logo.png"></a>CHAPTER 6<br>Functions & Pointers</header>
+  <div class="flexContainer">
+    <!-- chapter6 -->
+    <section id="side">
+      <aside id="chapterList">
+        <h1>Topics</h1>
+        <div class="chapterContent">
+          <ul>
+            <li><a href="ch6.html"><b>Ch6:Functions & Pointers</b></a></li>
+            <li><a href="ch6.html#Function">Function</a></li>
+            <ul>
+              <li><a href="ch6.html#Why we Use Functions?">Why we Use Functions?</a></li>
+            </ul>
+            <li><a href="ch6.html#Scope of a variable in Functions">Scope of a variable in Functions</a></li>
+            <li><a href="ch6.html#Calling Convention ">Calling Convention</a></li>
+            <li><a href="ch6.html#Advanced Features of Functions">Advanced Features of Functions</a></li>
+            <ul>
+              <li><a href="ch6.html#Function Declaration and Prototypes">Function Declaration and Prototypes</a></li>
+              <li><a href="ch6.html#library Functions">library Functions</a></li>
+              <li><a href="ch6.html#Call by Value and Call by Reference">Call by Value and Call by Reference</a></li>
+              <li><a href="ch6.html#Introduction to Pointers">Introduction to Pointers</a>
+              <li><a href="ch6.html#Pointer Notation">Pointer Notation</a></li>
+              <li><a href="ch6.html#Back to Function Calls">Back to Function Calls</a> </li>
+              <li><a href="ch6.html#Conclusions">Conclusions</a></li>
+              <li><a href="ch6.html#Recursion">Recursion</a></li>
+            </ul>
+            <li><a href="ch6.html#Chapter 6 Quiz">Chapter 6 Quiz</a></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+    <section class="main">
+      <h2 id="Function">Function</h2>
+      <ul>
+        <li>A program segment that carries out some specific,well-defined task.</li>
+        <li><b>Example</b></li><ul>
+          <li>A function to add two numbers</li>
+          <li>A function to find the largest of n numbers</li>
+        </ul>
+        <li>A function will carry out its intended task whenever it is <span style="color:blue;">called</span> or <span
+            style="color:blue;">invoked</span></li>
+        <li>It Can be called multiple times.</li>
+        <li>Every C program consists of one or more functions</li>
+        <li>One of these functions must be called <span style="color:blue;">main</span></li>
+        <li>Execution of the program always begins by carrying out the instructions in <span
+            style="color:blue;">main</span>
+        </li>
+        <li>Functions call other functions as instructions</li>
+        <li><b>Function Control Flow</b></li>
+        <figure><img class="imageMiddle" class="imageMiddle" src="Figure6.1.jpg" alt="Figure6.1" class="responsiveImage"></figure>
+        <li>Calling function (<span style="color:blue;">callee</span>) may pass information to the called function
+          (<span style="color:blue;">callee</span>) as parameters/arguments</li>
+        <b>For example, the numbers to add</b>
+        <li>The callee may return a single value to the caller</li>
+        <ul>Some functions may not return anything</ul>
+      </ul>
+
+      <h3><b>Details of Terms used in function</b></h3>
+      <div class="row">
+        <div class="column">
+          <figure><img class="imageMiddle" class="imageMiddle" src="Figure6.3.jpg" alt="Terms" class="responsiveImage"></figure>
+        </div>
+        <div class="column">
+          <img class="imageMiddle" class="imageMiddle" src="Figure6.4.jpg" alt="Works" class="responsiveImage">
+        </div>
+      </div>
+
+      <h3><b>Another Example</b></h3>
+      <div class="row">
+        <div class="column">
+          <img class="imageMiddle" class="imageMiddle" src="Figure6.2.0.jpg" alt="declaration" class="responsiveImage">
+        </div>
+        <div class="column">
+          <img class="imageMiddle" class="imageMiddle" src="Figure6.2.1.jpg" alt="definition" class="responsiveImage">
+        </div>
+      </div>
+
+
+      <h2 id="Why we Use Functions?">Why We Use Functions?</h2>
+      <ul>
+        <li>Allows one to develop a program in a modular fashion</li>
+        <ul>
+          <li>Divide-and-conquer approach</li>
+          <li>Construct a program from small pieces or components</li>
+        </ul>
+        <li>Use existing functions as building blocks for new programs</li>
+        <li>Abstraction: hide internal details (library functions)</li>
+      </ul>
+
+      <h2 id="Scope of a variable in Functions">Scope of a variable in Functions</h2>
+      </A></h2>
+
+      <ul>
+        <li>Part of the program from which the value of the variable
+          can be used (seen)</li>
+        <li>Scope of a variable - Within the block in which the variable
+          is defined</li>
+        <ul>
+          <li>Block = group of statements enclosed within { }</li>
+        </ul>
+        <li>Local variable =scope is usually the function in which it is defined
+          <ul>
+            <li>So two local variables of two functions can have the
+              same name, but they are different variables</li>
+          </ul>
+        <li>Global variables =declared outside all functions (even
+          main)</li>
+        <ul>
+          <li>scope is entire program by default, but can be hidden in
+            a block if local variable of same name defined</li>
+        </ul>
+      </ul>
+
+      <img class="imageMiddle" class="imageMiddle" src="Figure6.7.jpg" alt="Scope" class="responsiveImage">
+
+      <h2 id="Calling Convention">Calling Convention</h2>
+      <ul>
+        <li>It Called by specifying the function name and parameters in an instruction in the calling function.
+        <li>When a function is called from some other function, the corresponding arguments in the function call are
+          called
+          <span style="color:green;">actual arguments or actual parameters</span>
+        </li>
+        <ul type="circle">
+          <li>The function call must include a matching actual parameter for each formal parameter</li>
+          <li>Position of an actual parameters in the parameter list in the call must match the position of the
+            corresponding formal parameter in the function definition</li>
+          <li>The formal and actual arguments must match in their data types</li>
+        </ul>
+      </ul>
+      <figure><img class="imageMiddle" src="Figure6.5.jpg" alt="Example" class="responsiveImage"></figure>
+      <figure><img class="imageMiddle" src="Figure6.6.jpg" alt="Example" class="responsiveImage"></figure>
+
+      <h3 style="color:red;"><b>Points to note</b></h3>
+      <ul>
+        <li>The identifiers used as formal parameters are <span style="color:blue;">"local".</span>
+          <ul>
+            <li>It is not recognized outside the function
+            <li>Names of formal and actual arguments may differ
+          </ul>
+        <li>A value-returning function is called by including it in an expression
+          <ul>
+            <li>A function with return type T ( not void) can be used anywhere an expression of type T can be used.</li>
+          </ul>
+        <li>Returning control back to the caller
+          <ul>
+            <li>If nothing returned</li>
+            <ul>
+              <li style="color:blue;">return;</li>
+              <li>or,until reaches the last right brace ending the function body.</li>
+            </ul>
+            <li>If something returned
+              <ul style="color:blue;">return expression;</ul>
+          </ul>
+      </ul>
+      <h2 id="Advanced Features of Functions">Advanced Features of Functions</h2>
+      </A></h2>
+      <p>We will see the advanced some features of functions are given below:-</p>
+
+      <h2 id="Function Declaration and Prototypes">Function Declaration and Prototypes</h2>
+      </A></h2>
+      <ul>
+        <li>Usually, a function is defined before it is called</li>
+        <ul>
+          <li>main() is the last function in the program written
+          <li> Easy for the compiler to identify function definitions in a single scan through the file</li>
+        </ul>
+        <li>However, many programmers prefer a top-down approach, where the functions are written after <span
+            style="color:blue;">main()</span></li>
+        <ul>
+          <li>Must be some way to tell the compiler
+          <li>Function prototypes are used for this purpose
+        </ul>
+        <li>Only needed if function definition comes after use
+        <li>Function prototypes are usually written at the beginning of a program, ahead of any functions(including
+          <span style="color:blue;">main()</span>)
+        </li>
+        <li>Prototypes can specify parameter names or just types (more common)</li>
+        <li>Examples:</li>
+        <ul>
+          <li>int gcd (int , int );</li>
+          <li>void div7 (int number);</li>
+        </ul>
+        <li><span style="color:blue;">Note: </span>the semicolon at the end of the line.
+        <li>The parameter name, if specifed, can be anything; but it is a good practice to use the
+          same names as in the function definition</li>
+      </ul>
+      <h3 style="color:Tomato;">Some more points</h3>
+      <ul type="square">
+        <li>A function cannot be defined within another function</li>
+        <ul type="circle">
+          <li>All function definitions must be disjoint</li>
+        </ul>
+        <li>Nested function calls are allowed</li>
+        <ul type="circle">
+          <li>A calls B, B calls C, C calls D, etc.</li>
+          <li>The function called last will be the first to return</li>
+        </ul>
+        <li>A function can also call itself, either directly or in a cycle</li>
+        <li>A calls B, B calls C, C calls back A Called <span style="color:blue;">recursive call or recursion</span>
+        </li>
+      </ul>
+      <h3 style="color:Tomato;">Example:main calls ncr, ncr calls fact</h3>
+      <pre>
+int ncr (int n, int r);
+int fact (int n);
+void main()
+{
+	int i, m, n, sum=0;
+	scanf ("%d %d", &m, &n);
+		for (i=1; i < =m; i+=2)
+			sum = sum + ncr (n, i);
+printf ("Result: %d \n",sum);
+}
+<b>//ncr function definition</b>
+int ncr (int n, int r)
+{
+return (fact(n) / fact(r) / fact(n-r));
+}
+<b>//fact function declaration</b>
+int fact (int n)
+{
+	int i,temp=1;
+	for (i=1; i&lt=n; i++)
+		temp *= i;
+	return (temp);
+}
+      </pre>
+
+      <h2 id="Call by Value and Call by Reference">Call by Value and Call by Reference</h2>
+      <p>It is used when invoking functions:</p>
+      <h3 style="color:green;">Call by value </h3>
+      <ul type="circle">
+        <li>Passes the value of the argument to the function</li>
+        <li>Execution of the function does not change the actual parameters</li>
+        <li>All changes to a parameter done inside the function are done on a copy of the actual parameter</li>
+        <li>The copy is removed when the function returns to the caller</li>
+        <li>The value of the actual parameter in the caller is not affected</li>
+        <p>Avoids accidental changes</p>
+      </ul>
+      <h3 style="color:green;">Call by reference</h3>
+      <ul>
+        <li>Passes the address to the original argument.</li>
+        <li>Execution of the function may affect the original</li>
+        <li>Not directly supported in C except for arrays</li>
+      </ul>
+
+      <h2 id="library Functions">library Functions</h2>
+
+      <section>
+        <ul>
+          <li>Set of functions already written for you,and bundled in a "library"</li>
+          <ul>Example:printf, scanf, getchar etc.</ul>
+          <li>C library provides a large number of functions for many things</li>
+          <li>We look at functions for mathematical use.</li>
+          <h3>Math library Functions</h3>
+          <li>Math library functions </li>
+          <ul>
+            <li>perform common mathematical calculations</li>
+            <li>Must include a special header file</li>
+            <ul>#include &#60 math.h &#62 </ul>
+          </ul>
+
+          <li>Example</li>
+          <ul>
+            <li>printf("%f", sqrt(900.0));</li>
+            <li>Calls function sqrt, which returns the square root of its argument</li>
+          </ul>
+
+          <li>Return values of math functions can be float/double/long double</li>
+          <li>Arguments may be constants, variables, or expressions</li>
+        </ul>
+      </section>
+
+      <table class="tableDecoration">
+        <thead>
+          <tr>
+            <th>Function</th>
+            <th>Working of function</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>double acos(double x)</td>
+            <td>Compute arc cosine of x.</td>
+          </tr>
+          <tr>
+            <td>double asin(double x)</td>
+            <td>Compute arc sine of x.</td>
+          </tr>
+          <tr>
+            <td>double atan(double x)</td>
+            <td>Compute arc tangent of x.</td>
+          </tr>
+          <tr>
+            <td>double atan2(double y, double x)</td>
+            <td>Compute arc tangent of y/x.</td>
+          </tr>
+          <tr>
+            <td>double cos(double x)</td>
+            <td>Compute cosine of angle in radians.</td>
+          </tr>
+          <tr>
+            <td>double cosh(double x)</td>
+            <td>Compute the hyperbolic cosine of x.</td>
+          </tr>
+          <tr>
+            <td>double sin(double x) </td>
+            <td> Compute sine of angle in radians.</td>
+          </tr>
+          <tr>
+            <td>double sinh(double x) </td>
+            <td> Compute the hyperbolic sine of x.</td>
+          </tr>
+          <tr>
+            <td>double tan(double x) </td>
+            <td> Compute tangent of angle in radians.</td>
+          </tr>
+          <tr>
+            <td>double tanh(double x) </td>
+            <td> Compute the hyperbolic tangent of x.</td>
+          </tr>
+
+          <tr>
+            <td>double ceil(double x) </td>
+            <td> Get smallest integral value that exceeds x.</td>
+          </tr>
+          <tr>
+            <td>double floor(double x) </td>
+            <td> Get largest integral value less than x.</td>
+          </tr>
+          <tr>
+            <td>double exp(double x) </td>
+            <td> Compute exponential of x.</td>
+          </tr>
+          <tr>
+            <td>double fabs (double x) </td>
+            <td> Compute absolute value of x.</td>
+          </tr>
+          <tr>
+            <td>double log(double x) </td>
+            <td> Compute log to the base e of x.</td>
+          </tr>
+          <tr>
+            <td>double log10 (double x) </td>
+            <td> Compute log to the base 10 of x.</td>
+          </tr>
+          <tr>
+            <td>double pow (double x, double y) </td>
+            <td> Compute x raised to the power y.</td>
+          </tr>
+          <tr>
+            <td>double sqrt(double x) </td>
+            <td> Compute the square root of x.</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+      <h2 id="Introduction to Pointers">Introduction to Pointers</h2>
+      <ul type="circle;">
+        <li>It is powerful,but difficult to master.</li>
+        <li>It simulate call-by-reference.</li>
+        <li>It is closely related with arrays and strings</li>
+      </ul>
+
+      <h4>Pointer Variable Definitions and Initialization</h4>
+      <ul>
+        <li>Pointer variables
+          <ul>
+            <li>Contain memory addresses as their values
+            <li>Normal variables contain a specific value (direct reference) count
+            <li>Pointer is a variable that contains address of a another variable that has a specific value (indirect
+              reference)
+            <li>Indirection – referencing a pointer value
+          </ul>
+        <li>Pointer definition
+          <ul>
+            <li>* used with pointer variables</li>
+            <ul>
+              <li>int *myPtr;</li>
+            </ul>
+            <li>Defines a pointer to an int (pointer of type int *)</li>
+            <li>Multiple pointers require using a * before each variable definition</li>
+            <ul>
+              <li>int *myPtr1, *myPtr2;</li>
+            </ul>
+            <li>It can define pointers to any data type</li>
+            <li>Initialize pointers to NulL or an address</li>
+          </ul>
+      </ul>
+      <h2 id="Pointer Notation">Pointer Notation</h2>
+      <ul>
+        <li>& (address operator)</li>
+        <li>It returns address of operand</li>
+      </ul>
+
+      <h2 id="Back to Function Calls">Back to Function Calls</h2>
+      <p>A callback is any executable code that is passed as an argument to other code, which is expected to call back
+        (execute) the argument at a given time. In simple language, If a reference of a function is passed to another
+        function as an argument to call it, then it will be called as a Callback function.
+        In C, a callback function is a function that is called through a function pointer.<br>
+        Below is a simple example in C to illustrate the above definition to make it more clear: </p>
+      <pre>
+  // A simple C program to demonstrate callback
+#include &lt;stdio.h &gt;
+void Ask()
+{
+	printf("I am function Ask\n");
+}
+// callback function
+void Blow(void (*ptr)())
+{
+	(*ptr) (); // callback to Ask
+}
+
+int main()
+{
+	void (*ptr)() = &#38A;
+	
+	// calling function Blow and passing
+	// address of the function Ask as argument
+	Blow(ptr);
+return 0;
+}
+</pre>
+      <h2 id="Conclusions">Conclusions</h2>
+      <p>
+      <b>(a)</b>If we want that the value of an actual argument should not get changed in the function being called,
+      pass the actual argument by value.<br>
+      <b>(b)</b>If we want that the value of an actual argument should get changed in the function being called, pass
+      the actual argument by reference.<br>
+      <b>(c)</b>If a function is to be made to return more than one value at a time then return these values indirectly
+      by using a call by reference.
+      </p>
+
+  <h2 id="Recursion" >Recursion</h2>
+ <p class="why">The Recursive function is a function that calls itself to solve the problem.</p> 
+ <h2>When should we use recursion?</h2>
+ <p>If any problem can be divided into multiple smaller version of the same problem, we can use Recursive approach to solve that problem.</p>
+ <pre>
+Calculate the factorial of a given number.
+fact(3) = 6 (3 * 2 * 1)
+This problem can be divided into three smaller versions.
+ Declare fact = 1
+ 1. fact = fact * 3
+ 2. fact = fact * 2
+ 1. fact = fact * 1
+</pre>
+<h2>Basic Rules of Recursion</h2>
+<p class="why">1. The recursive function should call itself.</p>
+<p class="why">2. The recursive function should have an ending point where it doesn't make further recursive calls. Also called as the base case. Base case will not need any recursive call to solve.</p>
+<h3>Example Base cases</h3>
+<p>Factorial of 0 is 1 and 1 is 1.<br>
+Fibonacci of 0 is 0 and 1 is 1.<br>
+The above cases are straightforward and those cases don't need any recursive call.</p>
+<P class="why">3. All the recursive calls should align towards the base case.</P>
+
+<h3>Example</h3>
+<p>When calculating factorial(5). Here, base case is factorial(0) = 1 || factorial(1) = 1.<br>
+
+Recursive functions should go like factorial(5), factorial(4),factorial(3),factorial(2), finally ends with factorial(1) or factorial(0).<br>
+
+If it goes in another way like factorial(6)....factorial(100) etc. The recursion won't end.
+</p>
+
+
+
+<h4>Let's solve the factorial problem using recursion</h4>
+<h3>Algorithm </h3>
+<p>1.Find the base case. factorial(0) = 1 || factorial(1) = 1.<br>
+
+2. Write the factorial function and call itself recursively untill it meets the base case.<br>
+
+3. Calculate and return the answer.</p>
+<pre>
+int factorial(int n)
+{
+    //base case fact(0) = fact(1) = 1 
+    if(n &lt= 1)
+        return 1;
+    //calculate the factorial
+    //recursively the call the above function
+    return n * factorial(n - 1);
+}
+</pre>
+<h3>Factorial using Recursion</h3>
+<pre>
+  #include &lt;stdio.h&gt;
+  int fact(int n)
+  {
+      if(n &lt= 1)
+          return 1;
+      return n * fact(n-1);
+  }
+  int main()
+  {
+      int n;
+      scanf("%d",&n);
+      if(n >= 0)
+          printf("%d\n",fact(n));
+      return 0;
+  }
+</pre>
+
+<h2 >Visualizing the above recursive function</h2>
+<p>The best way of understanding the recursion is by visualizing it.<br>
+Let's understand how factorial(3) works.</p>
+<figure><img class="imageMiddle" src="visulazingRecursion.png"></figure>
+<h2>Stack Overflow in Recursion</h2>
+<p class="why">
+  In recursion, the new function call will be created in stack memory section.<br>
+  If our recursive function doesn't have any base case or the recursive function call doesn't align towards the base case, it will keep on create function calls in the stack memory section.<br>
+  At some point in time, the recursive function call overflows the stack memory section as it doesn't have any stopping point.<br>
+  This is also called as the stack overflow in recursion.
+</p>
+<h3>Recursive function won't have any base case - Stack Overflow</h3>
+<pre>
+#include&ltstdio.h1&gt
+int fact(int n)
+{
+    return n * fact(n-1);
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    if(n >= 0)
+        printf("%d\n",fact(n));
+    return 0;
+}
+</pre>
+<p class="why">
+The above recursive function doesn't have any base case.<br>
+If the given input is 3, the recursive calls will be fact(2), fact(1), fact(0), fact(-1),.... and so on. It will never end.<br>
+This will overflows the stack memory section.
+</p>
+
+  <h2 id="Chapter 6 Quiz">Chapter 6 Quiz</h2>
+
+  <div class="qt-question">1.When function calls itself, it is known as ______.</div>
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="1.0" name="1" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+        (a)	recursion
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="1.1" name="1" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        (b)	exit control loop
+            </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="1.2" name="1" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+        (c)	nested loop      
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="1.3" name="1" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        (d)	user-defined function</div>
+      </label>
+    </div>
+
+  <!--  -->
+
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+
+
+  <div class="qt-question">2.A recursive function without if and else conditions will always lead to?
+    </div>
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="2.0" name="2" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+        (a)	Finite loop
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="2.1" name="2" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        (b)	Infinite loop
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="2.2" name="2" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+        (c)	Incorrect result
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="2.3" name="2" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        (d)	Correct result
+      </label>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+
+  <div class="qt-question">3.What will be Output of Program?
+  <pre>
+    #include&lt; stdio.h &gt;
+    int fun(int n)
+    {
+      if (n==4)
+        return n;
+      else  
+        return 2*fun(n+1);
+    }
+    int main()
+    {
+      printf("%d",fun(2));
+      return 0;
+    }
+  </pre>
+  </div>
+  
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="3.0" name="3" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+        (a) 24
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="3.1" name="3" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        (b) 16
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="3.2" name="3" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+       (c) 12
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="3.3" name="3" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        (d) Runtime Error
+      </label>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+
+  <div class="qt-question">4.In the C language</div>
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="4.0" name="4" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+       (a) The number of activation records between the current activation record and
+       the activation record of the main depends on the actual function calling
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="4.1" name="4" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        (b) At most one activation record exists between the current activation record and the activation record for the main
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="4.2" name="4" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+       (c) The visibility of global variables depends on the actual function calling sequence
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="4.3" name="4" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        (d)Recursion requires the activation record for the recursive function to be saved on a different stack before the recursive fraction can be called
+      </label>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+
+  <div class="qt-question">5.Consider the following C function:
+    <pre>
+    int f(int n)
+    {
+    static int i = 1;
+    if(n>=5) return n;
+    n = n+1;
+    i++;
+    return f(n);
+    }
+    The value returned by f(1) is
+  </pre>
+  </div>
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="5.0" name="5" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+        (a) 5
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="5.1" name="5" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        (b) 6
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="5.2" name="5" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+        (c) 7
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="5.3" name="5" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        (d) 8
+      </label>
+    </div>
+
+  </div>
+
+  <button type="button" onclick="showAlert()">Get Answer</button>
+  <div class="qt-feedback qt-hidden" role="alert"></div>
+  <!--  -->
+
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+  </section>
+  </div>
+
+  <div class="flex-container">
+    <div class="flex-items"><a href="index.html">
+        <figure> <img src="home.png" alt="Home Page">
+      </a>
+    </div>
+    <div class="flex-items"> <a href="ch3.html">
+        <figure> <img  src="cc.png" alt="Top of Page">
+      </a>
+    </div>
+  </div>
+
+  <div class="flex-containerpreviousnext">
+    <div class="flex-itemsprevious"><a href="ch5.html">
+        <figure> <img src="previous.png" alt="Go Next">
+      </a></div>
+    <div class="flex-itemsnext" style="visibility:hidden;display:none;"><a href="ch7.html">
+        <figure> <img src="next.png" alt="Go Next">
+      </a></div>
+  </div>
+
+  <footer>
+    <div class="flex-footer">
+      <div class="footer-item">Copyright © 2023. All rights reserved.
+        For Suggestions and Feedback please contact
+        dean.academic80@gmail.com
+        Designed by Webteam
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

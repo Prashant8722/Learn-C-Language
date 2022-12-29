@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CHAPTER 2:Getting Started with C </title>
+  <link rel = "icon" href = "logo.png" type = "icon">
+  <meta http-equiv="Content-Type" content="text/html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="indexCss.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function showAlert() {
+      alert("1. D) 1 bytes, 4 bytes, 4 bytes, 8 bytes" + '\n' +
+        "2. C) stdio. h" + '\n' +
+        "3. B) -128 to +127" + '\n' +
+        "4. A) helloWorld10" + '\n' + "5. D) None of the above")
+
+    }
+  </script>
+</head>
+
+<body>
+  <header id="header"> <a href="index.html"><img id="logo" src="logo.png"></a>Chapter 2<br>Getting Started with C</header>
+  <div class="flexContainer">
+    <!-- chapter2 -->
+    <section id="side">
+      <aside id="chapterList">
+        <h1>Topics</h1>
+        <div class="chapterContent">
+          <ul class="listOfTopics">
+            <li><a href="ch2.html#Introduction">Introduction </a></li>
+            <li><a href="ch2.html#Structure Of C Program ">Structure Of C Program</a></li>
+            <li><a href="ch2.html#Variables ">Variables </a></li>
+            <li><a href="ch2.html#C Keywords">C Keywords</a></li>
+            <li><a href="ch2.html#Input:Scanf function">Input:Scanf Function</a></li>
+            <li><a href="ch2.html#Data types">Data Types</a></li>
+            <li><a href="ch2.html#Chapter 2 Quiz">Chapter 2 Quiz</a></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+    <section class="main">
+      <h2 id="Introduction">Introduction</h2>
+      <p>Computer is a machine that can perform computation</p>
+
+      <ol>
+        <li><b>Input:</b>User gives a set of Input</li>
+        <li><b>Processing:</b>Input data is processed by a well defined and finite sequence of steps</li>
+        <li><b>Output:</b>Some data available from processing step and output to the user</li>
+      </ol>
+      <figure>
+        <img class="imageMiddle" src="Figure2.0.jpg" alt="A Computer (Level 0 Version)">
+        <figcaption class="figcaptionCenter">Figure 2.0: </figcaption>
+      </figure>
+
+      <div>
+        <h2>Programming and Software</h2>
+        <article>
+          <p>Computer needs to be programmed to do such tasks:-<br>
+            <b><i>Programming:</b></i> is the process of writing instructions in a language that can be understood by
+            the computer so that a desired task can be performed by it<br>
+            <b><i>Program:</b></i> sequence of instructions to do a task,computer processes the instructions
+            sequentially one after the other<br>
+            <b><i>Software:</b></i> programs for doing tasks on computers
+        </article>
+      </div>
+
+      <h2 id="Structure Of C Program">Structure Of C Program</h2>
+      <ul type="square">
+        <li>A collection of functions (we will see what they are later)</li>
+        <li>Exactly one special function named main must be present.Program always starts from there</li>
+        <li>Each function has statements (instructions) for declaration, assignment, condition check,looping etc.</li>
+        <li>Statements are executed one by one.
+      </ul>
+
+      <h2 id="Variables">Variables</h2>
+      <ul type="disc">
+        <li>Very important concept for programming.</li>
+        <li>Variables stored in memory.</li>
+        <li>An entity that has a value and is known to the program by a name.</li>
+        <li>It Can store any temporary result while executing a program.</li>
+        <li>It Can have only one value assigned to it at any given time during the execution of the program.</li>
+        <li>The value of a variable can be changed during the execution of the program.</li>
+        <li>Remember that memory is a list of storage locations,each having a unique address.</li>
+        <li>A variable is like a <B>bin:-</B></li>
+        <ul type="circle">
+          <li>The contents of the bin is the <B>value</B> of the variable.</li>
+          <li>The variable name is used to refer to the value of the variable.</li>
+          <li>A variable is mapped to a location of the memory,called its <B>address</B>.</li>
+        </ul>
+      </ul>
+
+
+      <section>
+        <h3><strong>Variables in Memory</strong></h3>
+        <figure><img class="imageMiddle" src="Figure2.1.jpg" alt="Figure 2.5">
+        </figure>
+        <figure><img class="imageMiddle" src="Figure2.2.jpg" alt="Figure 2.2">
+        </figure>
+        <figure><img class="imageMiddle" src="Figure2.3.jpg" alt="Figure 2.3">
+        </figure>
+        <figure><img class="imageMiddle" src="Figure2.4.jpg" alt="Figure 2.4">
+          <figcaption class="figcaptionCenter">Variables in memory</figcaption>
+        </figure>
+      </section>
+
+      <h2 id="How to give Names of Variable">How to give Names of Variable</h2>
+      <ol>
+        <li>Sequence of letters and digits</li>
+        <li>First character must be a letter or &#39_&#39</li>
+        <li>No special characters other than &#39_&#39</li>
+        <li>No blank in between</li>
+        <li>Names are case-sensitive (max and Max are two different names)</li>
+        <ul>
+          <li>Examples of valid names:</li>
+          <ul>rank1, MAX, max, Min, class_rank</ul>
+          <li>Examples of invalid names:</li>
+          <ul>a&#39 s ,fact rec,2sqroot,class?rank</ul>
+        </ul>
+      </ol>
+
+      <h2 id="Constants">Constants</h2>
+      <ul type="disc">
+        <li>Integer constants</li>
+        <ol type='circle'>
+          <li>Consists of a sequence of digits, with possibly a plus or a minus sign before it</li>
+          <li>Embedded spaces, commas and non-digit charactersare not permitted between digits</li>
+        </ol>
+        <li>Floating point constants</li>
+        <li>Two different notations:</li>
+        <ol type='circle'>
+          <li>Decimal notation: 25.0, 0.0034, .84, -2.234</li>
+          <li>Exponential (scientific) notation 3.45e23, 0.123e-12, 123e2 e means <q>10 to the power of</q></li>
+        </ol>
+        <li>Character constants</li>
+        <li>Contains a single character enclosed within a pair of single quote marks.</li>
+        <p>Examples :&#39 2 &#39, &#39 + &#39, &#39 Z &#39</p>
+        <li>Some special backslash characters</li>
+        <table style="width:30%">
+          <tr>
+            <td>&#39\n&#39 </td>
+            <td>new line</td>
+          </tr>
+          <tr>
+            <td>&#39\t&#39 </td>
+            <td>horizontal tab</td>
+          </tr>
+          <tr>
+            <td>&#39\&#39 &#39 </td>
+            <td>single quote</td>
+          </tr>
+          <tr>
+            <td>&#39\&#8221&#39 </td>
+            <td>double quote</td>
+          </tr>
+          <tr>
+            <td>&#39\\&#39</td>
+            <td>backslash</td>
+          </tr>
+          <tr>
+            <td>&#39\0&#39 </td>
+            <td>null<br>
+          </tr>
+        </table>
+      </ul>
+
+      <pre>
+        <B>Illustration 2.3</B>
+        #include&#60 stdio.h &#62
+        void main()
+        {
+          int x;
+          int y;
+          x=1;
+          y=3;
+          printf("x = %d, y= %d\n", x, y);
+        }
+    </pre>
+      <pre>
+        <b>Output:</b>
+        x=1, y=3
+    </pre>
+
+      <h2 id="C Keywords">C Keywords</h2>
+      <UL type="Circle">
+        <li>Used by the C language, cannot be used as variable names
+        <li>Examples:
+          <ul type="square">
+            <li><B> int, float, char, double, main, if else, for, while,do, struct, union, typedef, enum, void,
+                return,signed, unsigned, case, break, sizeof etc.</B>
+            <li>There are others, see textbook.
+          </ul>
+      </UL>
+
+      <h2 id="Input:Scanf function">Input:Scanf function<br>
+      </h2>
+      <UL type="square">
+        <li>Performs input from keyboard
+        <li>It requires a format string and a list of variables into which the value received from the keyboard will be
+          stored
+        <li>format string = individual groups of characters(usually &#39%&#39 sign, followed by a conversion
+          character),with
+          one character group for each variable in the list
+          <TABLE WIDTH=30%>
+            <TR VALIGN=TOP>
+              <TD>
+                <BLOCKQUOTE>
+                  <pre>
+                int a, b;
+                float c;
+                scanf(<q>%d %d %f</q>, &a, &b, &c);
+            </pre>
+                </BLOCKQUOTE>
+              </TD>
+            </TR>
+          </TABLE>
+      </UL>
+
+      <h2 id="Commonly used conversion characters">Commonly used conversion characters</h2>
+      <ol type="a">
+        <li><strong>c</strong> :for char type variable</li>
+        <li><strong>d</strong> :for int type variable</li>
+        <li><strong>f</strong> :for float type variable
+        <li><strong>lf</strong> :for double type variable
+          <ul type=None>
+            <li><strong>Examples:</strong></li>
+            <li>scanf("%d", &size) ;</li>
+            <li>scanf("%c", nextchar) ;</li>
+            <li>scanf("%f", &length) ;</li>
+            <li>scanf("%d%d", &a, &b);</li>
+          </ul>
+      </ol>
+
+      <h2 id="Reading a single character">Reading a single character</h2>
+      <ul type="disc">
+        <li>A single character can be read using scanf with %c</li>
+        <li>It can also be read using the getchar() function</li>
+        <li>Program waits at the getchar() line until a character is typed, and then reads it and stores it in c</li>
+        <p> char c;<br>
+          c = getchar();
+        </p>
+      </ul>
+
+      <h2 id="Data types">Data types<br></h2>
+      <ul type='square'>
+        <li>Each variable has a type, indicates what type of values the variable can hold</li>
+        <ol type='I'>
+          <b>Four common data types in C: </b>
+          <li><b>int</b> - can store integers (usually 4 bytes)</li>
+          <li><b>float</b> - can store single-precision floating point numbers (usually 4 bytes)</li>
+          <li><b>double</b> - can store double-precision floating point numbers (usually 8 bytes)</li>
+          <li><b>char</b>- can store a character (1 byte)</li>
+        </ol>
+        <li>Must declare a variable (specify its type and name) before using it anywhere in your program</li>
+        <li>All variable declarations should be at the beginning of the main() or other functions</li>
+        <li>A value can also be assigned to a variable at the time the variable is declared.</li>
+        <p>
+          int speed = 30;<br>
+          char flag = &#39 y &#39;
+        </p>
+      </ul>
+
+      <h3>Some typical sizes (some of these can vary depending on type of machine)</h3>
+      <figure><img src="Figure2.5.jpg" alt="Data Types range Table"></figure>
+
+      <h2 id="Chapter 2 Quiz">Chapter 2 Quiz<br>
+      </h2>
+        <div class="qt-question">1.How much memory Size takes char,int,float & double datatypes in memory</div>
+        <div class="qt-choices">
+
+          <div class="gcb-mcq-choice">
+            <input data-index="0" id="1.0" name="1" onclick="clearSelection(this)" type="radio" />
+            <label for="1.0">
+              A) 4 bytes, 8 bytes, 1 bytes, 4 bytes
+            </label>
+          </div>
+
+          <div class="gcb-mcq-choice">
+            <input data-index="1" id="1.1" name="1" onclick="clearSelection(this)" type="radio" />
+            <label for="1.1">
+              B) 1 bytes, 8 bytes, 4 bytes, 4 bytes
+            </label>
+          </div>
+
+          <div class="gcb-mcq-choice">
+            <input data-index="2" id="1.2" name="1" onclick="clearSelection(this)" type="radio" />
+            <label for="1.2">C) 1 bytes, 4 bytes, 8 bytes, 4 bytes</label>
+          </div>
+
+          <div class="gcb-mcq-choice">
+            <input data-index="3" id="1.3" name="1" onclick="clearSelection(this)" type="radio" />
+            <label for="1.3">
+              D) 1 bytes, 4 bytes, 4 bytes, 8 bytes
+            </label>
+          </div>
+
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+
+  <div class="qt-question">2. scanf() is a predefined function in which header file?</div>
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="2.0" name="2" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+        A) stdarg.h
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="2.1" name="2" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        B) stdlib. h
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="2.2" name="2" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+        C) stdio. h
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="2.3" name="2" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        D) ctype. h
+      </label>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+
+  <div class="qt-question">3.What is the Range of Char Data Types</div>
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="3.0" name="3" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+        A) -128 to +128
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="3.1" name="3" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        B) -128 to +127
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="3.2" name="3" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+        C) -127 to +127
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="3.3" name="3" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        D) -127 to +128
+      </label>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+  <div class="qt-question">4.What outputs does it generates:<b>printf ( "%d" , printf ( "helloWorld" ) );</b></div>
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="4.0" name="4" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+        A) helloWorld10
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="4.1" name="4" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        B) helloWorld 1
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="4.2" name="4" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+        C) World5
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="4.3" name="4" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        D) None of the above
+      </label>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+
+
+  <div class="qt-question">5.Which of the data types has the size that is variable?</div>
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="5.0" name="5" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+        A) int
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="5.1" name="5" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        B) char
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="5.2" name="5" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+        C) float
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="5.3" name="5" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        D) None of the above
+      </label>
+    </div>
+
+  </div>
+  <!--  -->
+
+  <button class="button" onclick="showAlert()">Get Answer</button>
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+
+  </section>
+  </div>
+
+  <div class="flex-container">
+    <div class="flex-items"><a href="index.html">
+        <img src="home.png" alt="Home Page"></a>
+    </div>
+    <div class="flex-items"> <a href="ch1.html">
+        <img src="cc.png" alt="Top of Page"></a>
+    </div>
+  </div>
+
+  <div class="flex-containerpreviousnext">
+    <div class="flex-itemsprevious"><a href="ch1.html"><img src="previous.png" alt="Go Next"></a></div>
+    <div class="flex-itemsnext"><a href="ch3.html"><img src="next.png" alt="Go Next"></a></div>
+  </div>
+
+  <footer>
+    <div class="flex-footer">
+      <div class="footer-item">Copyright © 2023. All rights reserved.
+        For Suggestions and Feedback please contact
+        dean.academic80@gmail.com
+        Designed by Webteam
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

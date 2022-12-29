@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chapter 1:Fundamentals of C</title>
+  <link rel = "icon" href = "logo.png" type = "icon">
+  <meta http-equiv="Content-Type" content="text/html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="indexCss.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function showAlert() {
+      alert("1. B. cannot be used in the meaning other than defined in the language standard" + '\n' +
+        "2. C. a computer program designed to translate programs from a high-level language into a machine language" + '\n' +
+        "3. C. 87.65" + '\n' +
+        "4. B. __@" + '\n' + "5. B. 0")
+
+    }
+  </script>
+</head>
+
+<body>
+  <header id="header"> <a href="index.html"><img id="logo" src="logo.png"></a> Chapter 1<br>Fundamentals of C</header>
+  <div class="flexContainer">
+    <!-- chapter1 -->
+    <section id="side">
+            <aside id="chapterList">
+                    <h1>Topics</h1>
+                    <div class="chapterContent">
+                            <ul>
+                                    <li><a href="ch1.html"><b>Ch1:Fundamentals of C</b></a></li>
+                                    <li><a href="ch1.html#Introduction">Introduction</a></li>
+                                    <li><a href="ch1.html#C Programming Paradigms">C Programming
+                                                    Paradigms</a></li>
+                                    <ul>
+                                            <li><a href="ch1.html#Need of C Programming">Need of C
+                                                            Programming</a></li>
+                                            <li><a href="ch1.html#Facts about C ">Facts about C </a></li>
+                                    </ul>
+                                    <li><a href="ch1.html#Advantages of C">
+                                                    Advantages of C</a></li>
+                                    <ul>
+                                            <li><a href="ch1.html#Easy to learn">
+                                                            Easy to learn</a></li>
+                                            <li><a href="ch1.html#Structured language">
+                                                            Structured language</a></li>
+                                            <li><a href="ch1.html#Efficient Programs ">
+                                                            Efficient Programs </a></li>
+                                            <li><a href="ch1.html#Ability to extend ">
+                                                            Ability to extend</a></li>
+                                            <li><a href="ch1.html#Powerful programming language ">
+                                                            Powerful programming language</a></li>
+                                    </ul>
+                                    <li><a href="ch1.html#Tools Available for C Programming ">
+                                                    Tools Available for C Programming</a></li>
+                                    <ul>
+                                            <li><a href="ch1.html#Dev-C++">
+                                                            Dev-C++</a></li>
+                                            <li><a href="ch1.html#Turbo C++ ">
+                                                            Turbo C++ </a></li>
+                                            <li><a href="ch1.html#Code::Blocks ">
+                                                            Code::Blocks </a></li>
+                                            <li><a href="ch1.html#Visual C++ Studio ">
+                                                            Visual C++ Studio </a></li>
+                                    </ul>
+                                    <li><a href="ch1.html#Chapter 1 Quiz">
+                                                    Chapter 1 Quiz</a></li>
+                            </ul>
+                  </div>
+      </aside>
+      </section>
+`   <section class="main">
+  <h2 id="Introduction">Introduction</h2>
+  <p>
+    In this Chapter, we will briefly highlight over various features of C programming,and then tools available for C
+    programming.
+    This C programming tutorial explains the fundamental concepts in C language like
+    history of C language, identifiers and keywords, data types, storage classes, variables, decision making,
+    functions, control statements, string, structures, preprocessor directives etc with c programs and sample input output.
+  </p>
+  <p>
+    C language is a general-purpose, imperative popular computer programming language.
+    It supports structured programming, variable scope, recursion, provide low-level access to memory etc.
+    C language become one of the most widely used programming languages of all time.
+  </p>
+  <p>
+    C programming language is the mother for all programming languages.
+  </p>
+  <h2 id="C Programming Paradigms">C Programming Paradigms</h2>
+  <p>
+    C programming concept possesses all the basic programming features i.e for starting any basic programming
+    languages hold, in addition to these it holds something special which makes it the first of its kind.
+    Following sections are to brief the major characteristics of C programming.
+    </p>
+  <h3 id="Need of C Programming">Need of C Programming</h3>
+  <p>
+    The primary design of C is to produce portable code while maintaining performance and minimizing footprint (CPU
+    time, memory usage, disk I/O, etc.).
+    This is useful for operating systems, embedded systems or other programs where performance matters a lot ( &#8223
+    high-level &#8221 interface would affect performance).
+    With C it is relatively easy to keep a mental picture of what a given line really does, because most of the things
+    are written explicitly in the code.
+    C has a big codebase for low level applications.
+    It is the &#8223native &#8221 language of UNIX, which makes it flexible and portable. It is a stable and mature
+    language which is unlikely to disappear for a long time and has been ported to most, if not all, platforms.
+    It incorporates almost every basic features.</p>
+  <h3 id="Facts about C">Facts about C</h3>
+  <ul>
+    <li>C Programming language Evolution: ALGO->BCPL->B->Tradition C-> K&R C-> ANSI C-> ANSI/ISO C-> C99.</li>
+    <li>C is simple, elegant and wicked fast; it is compact and efficient.</li>
+    <li>C is not only a fundamental language but its permissive nature.</li>
+    <li>C language has a rich library which provides a number of built-in functions. It also offers dynamic memory
+      allocation.</li>
+    <li>C is the only language that exists for the longest period of time in computer programming history.</li>
+    <li>C is simple, elegant and wicked fast; it is compact and efficient.</li>
+    <li>C language is case-sensitive.</li>
+  </ul>
+
+  <h2 id="Advantages of C">Advantages of C</h2>
+  <p>
+    This section is to give the answer of <b>Why C Programming?</b>.Following points are included as answer of this
+    question.
+
+  <h3 id="Easy to learn">Easy to learn</h3>
+  <p>
+    C is a very easy to learn middle level language for expressing ideas in programming in a way that most.
+    C provide support for dynamic memory allocation.
+    In C, we can allocate and free the allocated memory at any time by calling library functions like malloc, calloc
+    and free.
+</p>
+  <h3 id="Structured language">Structured language</h3>
+  <p>
+    A structured programming language breaks and abstract a program into small logical components which are
+    responsible for performing a specific task.
+    C's main structural components are functions or subroutines. It makes the program easier to understand and modify.
+</p>
+  <h3 id="Efficient Programs">Efficient Programs</h3>
+  <P>C is a compiled programming language,which creates fast and efficient executable files.
+    It also provides a set of library functions for common utilities.
+    C provides a lot of inbuilt functions that makes the development fast.
+</P>
+  <h3 id="Ability to extend">Ability to extend</h3>
+  <p> Style of C programming that focuses on mechanisms to extend the programming language, compiler and runtime environment.
+  </p>
+  <h3 id="Powerful programming language">
+    Powerful programming language</h3>
+  <P>
+    C language provides a wide variety of inbuilt data types and ability to create custom data types using structures.
+    It also provides a large set of commonly used Input/Output, Mathematical, String etc, related functions as C
+    standard library.
+    C has a rich set of control statements, arithmetic operators, loops etc which provides a powerful tool for
+    programmer to implement his logic as a C program.
+</P>
+  <h2 id="Tools Available for C Programming">Tools Available for C Programming</h2>
+  <p>
+    The tools those are essential /available for C programming environment are downloaded from Third party tools. Each
+    of these are briefly outlined below :</p>
+
+  <h3 id="Dev-C++">Dev-C++</h3>
+  <p>Dev-C++ is a great development environment for beginners!
+    <I>Dev-C++ is a free software and can be downloaded from web site at 
+      <a href="https://sourceforge.net/projects/orwelldevcpp/">https://sourceforge.net/projects/orwelldevcpp/</a></I></p>
+
+  <h3 id="Turbo C++">Turbo C++</h3>
+  <P>Turbo C++ is a product developed by Vaibhav Kulkarni.It works with All Windows versions.
+    <I>Turbo C++ is a free software and can be downloaded from web site at 
+      <a href="https://qpdownload.com/turbo-c/">https://qpdownload.com/turbo-c/</a></I></P>
+
+  <h3 id="Code::Blocks">Code::Blocks</h3>
+  <p>The open source, cross platform, free C, C++ and Fortran IDE.
+    Application screenshotCode::Blocks is a free C, C++ and Fortran IDE built to meet the most demanding needs of its
+    users.
+    It is designed to be very extensible and fully configurable.
+    Finally, an IDE with all the features you need, having a consistent look, feel and operation across platforms.
+    <I>Code::Blocks is a free software and can be downloaded from web site at
+       <a href="http://www.codeblocks.org/downloads">http://www.codeblocks.org/downloads</a></I></p>
+
+  <h3 id="Visual C++ Studio">Visual C++ Studio</h3>
+  <p>C/C++ support for Visual Studio Code is provided by a Microsoft C/C++ extension to enable cross-platform C and
+    C++ development on Windows, linux, and macOS.</p>
+    <I>Visual C++ Studio is a free software and can be downloaded from web site at 
+      <a href="https://code.visualstudio.com/docs/languages/cpp">https://code.visualstudio.com/docs/languages/cpp</a></I>
+        </p>
+      
+  <h2 id="Chapter 1 Quiz">Chapter 1 Quiz</h2>
+  <div>
+    <div class="qt-question">1.A keyword is a word that</div>
+    <div class="qt-choices">
+
+      <div class="gcb-mcq-choice">
+        <input data-index="0" id="1.0" name="1" onclick="clearSelection(this)" type="radio" />
+        <label for="1.0">
+          A. functions as a password needed to launch a program
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="1" id="1.1" name="1" onclick="clearSelection(this)" type="radio" />
+        <label for="1.1">
+          B. cannot be used in the meaning other than defined in the language standard
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="2" id="1.2" name="1" onclick="clearSelection(this)" type="radio" />
+        <label for="1.2">
+          C. is the most important word in a program
+        </label>
+      </div>
+
+      <div class="gcb-mcq-choice">
+        <input data-index="3" id="1.3" name="1" onclick="clearSelection(this)" type="radio" />
+        <label for="1.3">
+          D. None of these
+        </label>
+      </div>
+
+    </div>
+
+    <!--  -->
+
+    <div class="qt-feedback qt-hidden" role="alert">
+    </div>
+  </div>
+
+  <div class="qt-question">2.A compiler is</div>
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="2.0" name="2" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+        A. an alternative name for a processor
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="2.1" name="2" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        B. a computer program designed to translate programs from a machine language into a high-level language
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="2.2" name="2" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+        C. a computer program designed to translate programs from a high-level language into a machine language
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="2.3" name="2" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        D. Both b and c
+      </label>
+    </div>
+
+  </div>
+
+  <!--  -->
+
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+
+  <div class="qt-question">3.What is the value of the  floating-point literal <b>8765E-2</b>?</div>
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="3.0" name="3" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+        A. 8.7652
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="3.1" name="3" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        B. 0.8765
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="3.2" name="3" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+        C. 87.65
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="3.3" name="3" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        D. 8765.00
+      </label>
+    </div>
+
+  <!--  -->
+
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+
+  <div class="qt-question">4.Which of the following strings is an invalid variable name?</div>
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="4.0" name="4" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+        A. _0_
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="4.1" name="4" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        B. __@
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="4.2" name="4" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+        C. _0
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="4.3" name="4" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        D. 0_
+      </label>
+    </div>
+
+  <!--  -->
+
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+
+  <div class="qt-question">5.What is the value of the x variable for  <b>int x=1/2;</b> snippet?</div>
+  <div class="qt-choices">
+
+    <div class="gcb-mcq-choice">
+      <input data-index="0" id="5.0" name="5" onclick="clearSelection(this)" type="radio" />
+      <label for="1.0">
+        A. 0.5
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="1" id="5.1" name="5" onclick="clearSelection(this)" type="radio" />
+      <label for="1.1">
+        B. 0
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="2" id="5.2" name="5" onclick="clearSelection(this)" type="radio" />
+      <label for="1.2">
+        C. 1
+      </label>
+    </div>
+
+    <div class="gcb-mcq-choice">
+      <input data-index="3" id="5.3" name="5" onclick="clearSelection(this)" type="radio" />
+      <label for="1.3">
+        D. Both a and b
+      </label>
+    </div>
+  </div>
+  </div>
+
+  <!--  -->
+  <button class="button" onclick="showAlert()">Get Answer</button>
+  <div class="qt-feedback qt-hidden" role="alert">
+  </div>
+  
+      </section>
+    </div>
+      <div class="flex-container">
+        <div class="flex-items"><a href="index.html">
+                        <img src="home.png" alt="Home Page"></a>
+        </div>
+        <div class="flex-items"> <a href="ch1.html">
+                        <img src="cc.png" alt="Top of Page"></a>
+        </div>
+      </div>
+
+<div class="flex-containerpreviousnext">
+        <div class="flex-itemsprevious"><a href="index.html"><img src="previous.png" alt="Go Next"></a></div>
+        <div class="flex-itemsnext"><a href="ch2.html"><img src="next.png" alt="Go Next"></a></div>
+</div>
+
+<footer>
+        <div class="flex-footer">
+                <div class="footer-item">Copyright © 2023. All rights reserved.
+                        For Suggestions and Feedback please contact
+                        dean.academic80@gmail.com
+                        Designed by Webteam
+                </div>
+        </div>
+</footer>
+</body>
+
+</html>
