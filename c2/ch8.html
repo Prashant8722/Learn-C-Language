@@ -1,0 +1,388 @@
+<HTML>
+<HEAD>
+<TITLE>Chapter 8 -- Concept of Strings</TITLE>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#CE2910">
+<H1><FONT SIZE=6 COLOR=#FF0000>Chapter&nbsp;8</FONT></H1>
+<H1><FONT SIZE=6 COLOR=#FF0000>Concept of Strings</FONT></H1>
+<P>
+<HR></HR>
+<P>
+<CENTER><B><FONT SIZE=5><A NAME="CONTENTS">CONTENTS</A></FONT></B></CENTER>
+<hr>
+<UL>
+<LI><A HREF="ch8.html#What is String?">
+What is String?</A>
+<LI><A HREF="ch8.html#Fundamentals of Strings">
+Fundamentals of Strings </A>
+<LI><A HREF="ch8.html#Pointers and Strings">
+Pointers and Strings</A>
+<LI><A HREF="ch8.html#Standard Library String Functions ">
+Standard Library String Functions </A>
+	<UL>
+		<LI><A HREF="ch8.html#strlen()">
+		strlen()</A>
+		<LI><A HREF="ch8.html#strcpy()">
+		strcpy()</FONT></A>
+		<LI><A HREF="ch8.html#strcat()">
+		strcat() </A>
+		<LI><A HREF="ch8.html#strcmp()">
+		strcmp()</A>
+	</UL>
+<LI><A HREF="ch8.html#2-D Array of Characters">
+2-D Array of Characters</FONT></A>
+<LI><A HREF="ch8.html#Array of Pointers to Strings">
+Array of Pointers to Strings</A>
+<LI><A HREF="ch8.html#Limitation of Array of Pointers to Strings">
+Limitation of Array of Pointers to Strings</A>
+<LI><A HREF="ch8.html#Chapter 8 Quiz">
+Chapter 8 Quiz</A>
+</UL>
+<hr>
+<H2><A NAME="What is String?"><FONT SIZE=5 COLOR=#FF0000>
+What is String?</FONT></A></H2>
+<p>Let's us first know about the Fundamentals of characters</p>
+
+<p>Characters are building blocks of programs.<br>
+Every program is a sequence of meaningfully grouped characters.
+</p>
+<h4 style="color:black;">Character constant</h4>
+<p>An int value represented as a character in single quotes.<br>
+'z' represents the integer value of z (122 ASCII value).
+</p>
+
+<H2><A NAME="Fundamentals of Strings"><FONT SIZE=5 COLOR=#FF0000>
+Fundamentals of Strings</FONT></A></H2>
+<ul type="circle">
+<li>Array of characters treated as a single unit called string.</li>
+<li>It can include letters, digits and special characters (*, /,$).</li>
+<li>String literal (string constant) - written in double quotes.</li>
+	<ul>I Love my Country.</ul>
+<li>Strings are arrays of characters</li>
+		<ol type="I"><li>String is a pointer to first character (like array).</li>
+				<li>Value of string is the address of first character.</li>
+		</ol>
+<li>Each element of the string is stored in a contiguous memory locations.
+<li>It is terminated by a null character('\0') which is automatically inserted
+	by the compiler to indicate the end of string.</li>
+</ul>
+
+<H2><A NAME="Pointers and Strings"><FONT SIZE=5 COLOR=#FF0000>
+Pointers and Strings</FONT></A></H2>
+
+
+<H2><A NAME="Standard Library String Functions"><FONT SIZE=5 COLOR=#FF0000>
+Standard Library String Functions</FONT></A></H2>
+<section>
+Functions defined in <span style="color:blue;">#include&#60string.h&#62</span>
+String handling library provides many useful functions:
+<ul type="square">
+<li>Manipulate string data(copy and concatenate)</li>
+<li>Comparing strings</li>
+<li>Determine string length</li>
+<li>Search strings</li>
+</section>
+<center><img src="Figure8.1.png"><br><b style="color:Tomato;">Figure8.1:list Of some important String function</b></center>
+<H2><A NAME="strlen()"><FONT SIZE=5 COLOR=#FF0000>
+strlen()</FONT></A></H2>
+
+<H2><A NAME="strcpy()"><FONT SIZE=5 COLOR=#FF0000>
+strcpy()</FONT></A></H2>
+<p>To sort the strings in increasing order.
+<br>That is if list of names is given then sort the list in alphabetical order.
+<br>Use strcmp() and strcpy() functions.</p>
+<h4 style="Color:blue;">Program to sort the strings using arrays.</h4>
+<pre>
+#include&#60stdio.h&#62
+#include&#60conio.h&#62
+#include&#60string.h&#62
+void main()
+{
+	char name[20][20];
+	char temp[20];
+	int i,j,n,l;
+	printf("Enter the no. of string to be sorted:");
+	scanf("%d",&n);
+	printf("Enter %d strings:\n", n);
+		for(i=0;i<=n;i++)
+			gets(name[i]);
+		for(i=0;i<=n;i++)
+			{
+			for(j=i+1;j<=n;j++)
+				{
+				l = strcmp(name[i], name[j]);
+				if(l>0) // if first string is greater then swap
+				{
+					strcpy(temp, name[i]);
+					strcpy(name[i],name[j]);
+					strcpy(name[j],temp);
+				}
+			}
+	}
+ puts("Sorted list is:\n");
+ for(i=0;i<=n;i++)
+	puts(name[i]);
+ getch();
+} 
+</pre>
+<BLOCKQUOTE>
+<p style="color:blue">Output:</p>
+Enter the no. of string to be sorted 3<br>
+Enter 3 strings<br>
+lovely<br>
+aananya<br>
+aman preet<br>
+Sorted list is:<br>
+aananya<br>
+aman preet<br>
+lovely
+</BLOCKQUOTE>
+<H2><A NAME="strcat()"><FONT SIZE=5 COLOR=#FF0000>
+strcat()</FONT></A></H2>
+
+<H2><A NAME="strcmp()"><FONT SIZE=5 COLOR=#FF0000>
+strcmp()</FONT></A></H2>
+
+<H2><A NAME="2-D Array of Characters"><FONT SIZE=5 COLOR=#FF0000>
+2-D Array of Characters</FONT></A></H2>
+
+
+<H2><A NAME="Array of Pointers to Strings"><FONT SIZE=5 COLOR=#FF0000>
+Array of Pointers to Strings</FONT></A></H2>
+
+
+<H2><A NAME="Limitation of Array of Pointers to Strings"><FONT SIZE=5 COLOR=#FF0000>
+Limitation of Array of Pointers to Strings</FONT></A></H2>
+
+
+
+
+<H2><A NAME="Chapter 8 Quiz"><FONT SIZE=5 COLOR=#FF0000>
+Chapter 8 Quiz</FONT></A></H2>
+<TABLE>
+        <div class="qt-question">1.A keyword is a word that</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="1.0" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                functions as a password needed to launch a program 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="1.1" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+                cannot be used in the meaning other than defined in the language standard 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="1.2" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                is the most important word in a program 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="1.3" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+                None of these
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">2.A compiler is</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="2.0" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                a.an alternative name for a processor 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="2.1" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+			b.a computer program designed to translate programs from a machine language into a high-level language             
+			</label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="2.2" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                c.a computer program designed to translate programs from a high-level language into a machine language
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="2.3" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+                d.Both b and c
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">3.What is the value of the following floating-point literal?<br>8765E-2</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="3.0" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+					8.7652
+			</label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="3.1" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+				0.8765
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="3.2" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                87.65
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="3.3" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+               8765.00
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">4.Which of the following strings is an invalid variable name?</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="4.0" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                _0_
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="4.1" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+                __@
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="4.2" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                _0
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="4.3" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+					0_
+				</label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">5.What is the value of the x variable at the end of the following snippet?<br>int x;<br>x = 1 / 2;</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="5.0" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                a.0.5
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="5.1" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+                b.0
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="5.2" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                c.1
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="5.3" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+                d.Both a and b
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+</TABLE>
+
+
+<HR>
+<CENTER><P>
+<A HREF="#CONTENTS"><IMG SRC="cc.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<A HREF="index.html"><IMG SRC="home.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<HR WIDTH="100%"></P></CENTER>
+<ul class="pager">
+  <li class="previous"><a href="ch7.html"><IMG SRC="pre.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+  <li class="next"><a href="ch9.html"><IMG SRC="next.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+</ul>
+</BODY>
+<HR>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted" align="center">  Copyright © BCE Bhagalpur. All rights reserved.
+<br> For Suggestions and Feedback please contact bcebhagalpur@gmail.com
+<br> Designed by Webteam,BCE(Computer Science Department) </p>
+      </div>
+    </footer>
+</HTML>

@@ -1,0 +1,364 @@
+<UL>
+<LI><A HREF="ch9.html#What are a Structure">
+What are a Structure</FONT></A>
+<LI><A HREF="ch9.html#Why Use Structures">
+Why Use Structures</A>
+<LI><A HREF="ch9.html#Declaring a Structure">
+Declaring a Structure</A>
+<LI><A HREF="ch9.html#Accessing Structure Elements">
+Accessing Structure Elements</A>
+<LI><A HREF="ch9.html#How Structure Elements are Stored">
+How Structure Elements are Stored</A>
+<LI><A HREF="ch9.html#Array of Structures">
+Array of Structures </A>
+<LI><A HREF="ch9.html#Additional Features of Structures">
+Additional Features of Structures</A>
+<LI><A HREF="ch9.html#Uses of Structures">
+Uses of Structures</A>
+<LI><A HREF="ch9.html#Chapter 9 Quiz">
+Chapter 9 Quiz</A>
+</UL>
+
+<HR>
+<H2><A NAME="What are a Structure"><FONT SIZE=5 COLOR=#FF0000>
+What are a Structure</FONT></A></H2>
+<ul type='disc'>
+<li>It is used for handling a group of logically related data items.</li>
+<li><b>Examples:</b></li>
+<uL>
+<li>Student name, roll number, and marks</li>
+<li>Real part and complex part of a complex number</li>
+</ul>
+<li>It helps in organizing complex data in a more meaningful way.</li>
+<li>The individual structure elements are called <span style="color:blue;">members.</span></li>
+</ul>
+
+<H2><A NAME="Why Use Structures"><FONT SIZE=5 COLOR=#FF0000>
+Why Use Structure</FONT></A></H2>
+
+<H2><A NAME="Declaring a Structure"><FONT SIZE=5 COLOR=#FF0000>
+Declaring a Structure</FONT></A></H2>
+<h3 style="color:Tomato;">Defining a Structure</h3>
+<pre>
+struct tag {
+	member 1;
+	member 2;
+	:
+	member m;
+	};
+</pre>
+<p>
+<b>--></b><span style="color:blue;">struct</span> is the required C keyword.<br>
+<b>-->tag</b> is the name of the structure<br>
+<b>-->member 1, member 2, … member m </b>are individual member.
+</p>
+
+<h3 style="color:Tomato;">A structure definition</h3>
+<pre>
+struct student 
+	{
+		char name[30];
+		int roll_number;
+		int total_marks;
+		char dob[10];
+	};
+	
+<h3 style="color:Tomato;">Declarations</h3>
+<ul>
+<li>The individual members can be ordinary variables, pointers, arrays, or other structures(any data type)</li>
+<li>The member names within a particular structure must be distinct from one another</li>
+<li>A member name can be the same as the name of a variable defined outside of the structure</li>
+<li>Once a structure has been defined, the individual structure-type variables can be declared as:</li>
+<ul><b>struct tag var_1, var_2, …, var_n;</b></ul>
+</ul>
+
+
+<h3 style="color:black;">Defining structure variables</h3>
+<b>struct student s1, s2, s3;</b>
+<p>
+<b>--></b>A new data-type<br>
+<b>--></b>A Compact Form<br>
+<b>--></b>It is possible to combine the declaration of the structure with that of the structure variables:
+</p>
+<pre>
+struct tag 
+	{
+		member 1;
+		member 2;
+		:
+		member m;
+	} var_1, var_2,…, var_n;
+</pre>
+<p>
+<b>--></b>Declares three variables of type struct tag<br>
+<b>--></b>In this form, tag is optional
+</p>
+
+<H2><A NAME="Accessing a Structure Elements"><FONT SIZE=5 COLOR=#FF0000>
+Accessing a Structure Elements</FONT></A></H2>
+<ul type="circle">
+ <li>The members of a structure are processed individually,as separate entities</li>
+<li>Each member is a separate variable</li>
+<li>A structure member can be accessed by writing</li>
+<b>variable.member</b>
+<li>where <i>variable</i> refers to the name of a structure-type variable, and <i>member</i> refers to the name of a member within the structure</li>
+<li><i>Examples:</i></li>
+<b>a1.name, a2.name, a1.roll_number, a3.dob</b>
+</ul>
+
+<H2><A NAME="How Structure Elements are Stored"><FONT SIZE=5 COLOR=#FF0000>
+How Structure Elements are Stored</FONT></A></H2>
+
+<H2><A NAME="Array of Structures"><FONT SIZE=5 COLOR=#FF0000>
+Array of Structures</FONT></A></H2>
+
+<H2><A NAME="Additional Features of Structures"><FONT SIZE=5 COLOR=#FF0000>
+Additional Features of Structures</FONT></A></H2>
+
+<H2><A NAME="Uses of Structures"><FONT SIZE=5 COLOR=#FF0000>
+Uses of Structures</FONT></A></H2>
+
+<h3 style="color:Tomato;">Example: Addition of two Complex number</h3>
+<pre>
+void main()
+{
+	struct complex
+		{
+		float real;
+		float cmplex;
+		} a, b, c;
+	scanf ("%f %f", &a.real, &a.cmplex);
+	scanf ("%f %f", &b.real, &b.cmplex);
+	c.real = a.real + b.real;
+	c.cmplex = a.cmplex + b.cmplex;
+	printf ("\n %f + %f j", c.real, c.cmplex);
+}
+</pre>
+<H2><A NAME="Chapter 9 Quiz"><FONT SIZE=5 COLOR=#FF0000>
+Chapter 9 Quiz</FONT></A></H2>
+
+<TABLE>
+        <div class="qt-question">1.A keyword is a word that</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="1.0" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                functions as a password needed to launch a program 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="1.1" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+                cannot be used in the meaning other than defined in the language standard 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="1.2" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                is the most important word in a program 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="1.3" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+                None of these
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">2.A compiler is</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="2.0" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                a.an alternative name for a processor 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="2.1" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+			b.a computer program designed to translate programs from a machine language into a high-level language             
+			</label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="2.2" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                c.a computer program designed to translate programs from a high-level language into a machine language
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="2.3" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+                d.Both b and c
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">3.What is the value of the following floating-point literal?<br>8765E-2</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="3.0" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+					8.7652
+			</label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="3.1" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+				0.8765
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="3.2" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                87.65
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="3.3" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+               8765.00
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">4.Which of the following strings is an invalid variable name?</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="4.0" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                _0_
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="4.1" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+                __@
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="4.2" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                _0
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="4.3" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+					0_
+				</label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">5.What is the value of the x variable at the end of the following snippet?<br>int x;<br>x = 1 / 2;</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="5.0" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                a.0.5
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="5.1" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+                b.0
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="5.2" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                c.1
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="5.3" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+                d.Both a and b
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+</TABLE>
+
+
+
+
+<HR>
+<CENTER><P>
+<A HREF="#CONTENTS"><IMG SRC="cc.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<A HREF="index.html"><IMG SRC="home.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<HR WIDTH="100%"></P></CENTER>
+<ul class="pager">
+  <li class="previous"><a href="ch8.html"><IMG SRC="pre.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+  <li class="next"><a href="ch10.html"><IMG SRC="next.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+</ul>
+</BODY>
+<HR>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted" align="center">  Copyright © BCE Bhagalpur. All rights reserved.
+<br> For Suggestions and Feedback please contact bcebhagalpur@gmail.com
+<br> Designed by Webteam,BCE(Computer Science Department) </p>
+      </div>
+    </footer>
+</HTML>
+</HTML>

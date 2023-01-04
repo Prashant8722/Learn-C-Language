@@ -1,0 +1,357 @@
+<HTML>
+<HEAD>
+<TITLE>Chapter 7 -- Arrays</TITLE>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B" ALINK="#CE2910">
+<H1><FONT SIZE=6 COLOR=#FF0000>Chapter&nbsp;7</FONT></H1>
+<H1><FONT SIZE=6 COLOR=#FF0000>Arrays</FONT></H1>
+<P>
+<HR>
+<CENTER><B><FONT SIZE=5><A NAME="CONTENTS">CONTENTS</A></FONT></B></CENTER>
+<HR>
+<UL>
+<LI><A HREF="ch7.html#What are Arrays">
+What are Arrays</A>
+<LI><A HREF="ch7.html#A Simple Program Using Array">
+A Simple Program Using Array</A>
+<LI><A HREF="ch7.html#More on Array">
+More on Array</A>
+<UL>
+<LI><A HREF="ch7.html#Array Initialization">
+Array Initialization</A>
+<LI><A HREF="ch7.html#Bounds Checking">
+Bounds Checking</A>
+<LI><A HREF="ch7.html#Passing Array Elements to a Function">
+Passing Array Elements to a Function </A>
+</UL>
+<LI><A HREF="ch7.html#Pointers and Arrays">
+Pointers and Arrays</A>
+<UL>
+<LI><A HREF="ch7.html#Passing an Entire Array to a function ">
+Passing an Entire Array to a function </A>
+<LI><A HREF="ch7.html#The Real Thing ">
+The Real Thing</A>
+</UL>
+<LI><A HREF="ch7.html#2-D Arrays">
+2-D Arrays</A>
+<UL>
+<LI><A HREF="ch7.html#Initializing a 2-D Array">
+Initializing a 2-D Array</A>
+<LI><A HREF="ch7.html#Memory Map of a 2-D Arrays">
+Memory Map of a 2-D Arrays</A>
+<LI><A HREF="ch7.html#Pointers and 2-D Arrays">
+Pointers and 2-D Arrays</A>
+<LI><A HREF="ch7.html#Pointer to an Array">
+Pointer to an Array</A>
+<LI><A HREF="ch7.html#Passing 2-D Array to a Function ">
+Passing 2-D Array to a Function</A>
+</UL>
+<LI><A HREF="ch7.html#Array of Pointers">
+Array of Pointers</A>
+<LI><A HREF="ch7.html#Chapter 7 Quiz">
+Chapter 7 Quiz</A>
+</UL>
+
+General form:
+type array_name[size] = { list of values };
+n Examples:
+int marks[5] = {72, 83, 65, 80, 76};
+char name[4] = {"A", "m", "i", "t"};
+n The size may be omitted. In such cases the
+compiler automatically allocates enough space
+for all initialized elements
+int flag[ ] = {1, 1, 1, 0};
+char name[ ] = {"A", "m", "i", "t"};
+
+<H2><A NAME="What are Arrays"><FONT SIZE=5 COLOR=#FF0000>
+What are Arrays</FONT></A></H2>
+
+<H2><A NAME="A Simple Program Using Array"><FONT SIZE=5 COLOR=#FF0000>
+A Simple Program Using Array</FONT></A></H2>
+
+<H2><A NAME="More on Array"><FONT SIZE=5 COLOR=#FF0000>
+More on Array</FONT></A></H2>
+
+<H2><A NAME="Array Initialization"><FONT SIZE=5 COLOR=#FF0000>
+Array Initialization</FONT></A></H2>
+
+<H2><A NAME="Bounds Checking"><FONT SIZE=5 COLOR=#FF0000>
+Bounds Checking</FONT></A></H2>
+
+<H2><A NAME="Passing Array Elements to a Function"><FONT SIZE=5 COLOR=#FF0000>
+Passing Array Elements to a Function</FONT></A></H2>
+
+<H2><A NAME="Pointers and Arrays"><FONT SIZE=5 COLOR=#FF0000>
+Pointers and Arrays</FONT></A></H2>
+
+<H2><A NAME="Passing an Entire Array to a function"><FONT SIZE=5 COLOR=#FF0000>
+Passing an Entire Array to a function</FONT></A></H2>
+
+<H2><A NAME="The Real Thing"><FONT SIZE=5 COLOR=#FF0000>
+The Real Thing</FONT></A></H2>
+
+<H2><A NAME="2-D Arrays"><FONT SIZE=5 COLOR=#FF0000>
+2-D Arrays</FONT></A></H2>
+
+<H2><A NAME="Initializing a 2-D Array"><FONT SIZE=5 COLOR=#FF0000>
+Initializing a 2-D Array</FONT></A></H2>
+
+<H2><A NAME="Memory Map of a 2-D Arrays"><FONT SIZE=5 COLOR=#FF0000>
+Memory Map of a 2-D Arrays</FONT></A></H2>
+
+<H2><A NAME="Pointers and 2-D Arrays"><FONT SIZE=5 COLOR=#FF0000>
+Pointers and 2-D Arrays</FONT></A></H2>
+
+<H2><A NAME="Pointer to an Array"><FONT SIZE=5 COLOR=#FF0000>
+Pointer to an Array</FONT></A></H2>
+
+<H2><A NAME="Passing 2-D Array to a Function"><FONT SIZE=5 COLOR=#FF0000>
+Passing 2-D Array to a Function</FONT></A></H2>
+
+<H2><A NAME="Array of Pointers"><FONT SIZE=5 COLOR=#FF0000>
+Array of Pointers</FONT></A></H2>
+
+<H2><A NAME="Chapter 7 Quiz"><FONT SIZE=5 COLOR=#FF0000>
+Chapter 7 Quiz</FONT></A></H2>
+
+<TABLE>
+        <div class="qt-question">1.A keyword is a word that</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="1.0" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                functions as a password needed to launch a program 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="1.1" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+                cannot be used in the meaning other than defined in the language standard 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="1.2" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                is the most important word in a program 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="1.3" name="1" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+                None of these
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">2.A compiler is</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="2.0" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                a.an alternative name for a processor 
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="2.1" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+			b.a computer program designed to translate programs from a machine language into a high-level language             
+			</label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="2.2" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                c.a computer program designed to translate programs from a high-level language into a machine language
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="2.3" name="2" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+                d.Both b and c
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">3.What is the value of the following floating-point literal?<br>8765E-2</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="3.0" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+					8.7652
+			</label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="3.1" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+				0.8765
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="3.2" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                87.65
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="3.3" name="3" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+               8765.00
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">4.Which of the following strings is an invalid variable name?</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="4.0" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                _0_
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="4.1" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+                __@
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="4.2" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                _0
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="4.3" name="4" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+					0_
+				</label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+  
+          <div class="qt-question">5.What is the value of the x variable at the end of the following snippet?<br>int x;<br>x = 1 / 2;</div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="5.0" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.0">
+                a.0.5
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="5.1" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.1">
+                b.0
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="5.2" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.2">
+                c.1
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="5.3" name="5" onclick="clearSelection(this)" type="radio"/>
+              <label for="1.3">
+                d.Both a and b
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+</TABLE>
+
+
+<hr></hr>
+
+<CENTER><P>
+<A HREF="#CONTENTS"><IMG SRC="cc.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<A HREF="index.html"><IMG SRC="home.gif" BORDER=0 HEIGHT=40 WIDTH=70></A>
+<HR WIDTH="100%"></P></CENTER>
+<ul class="pager">
+  <li class="previous"><a href="ch6.html"><IMG SRC="pre.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+  <li class="next"><a href="ch8.html"><IMG SRC="next.gif" BORDER=0 HEIGHT=10 WIDTH=70></a></li>
+</ul>
+</BODY>
+<HR>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted" align="center">  Copyright © BCE Bhagalpur. All rights reserved.
+<br> For Suggestions and Feedback please contact bcebhagalpur@gmail.com
+<br> Designed by Webteam,BCE(Computer Science Department) </p>
+      </div>
+    </footer>
+</HTML>
+</HTML>
+
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
+<html></html>
